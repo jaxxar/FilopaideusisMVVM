@@ -1,3 +1,21 @@
 <resources>
-    <string name="app_name">FilopaideusisMVVM</string>
+    <string name="app_name">Filopaideusis</string>
+    <string name="app_name_greek">Φιλοπαίδευσις</string>
+    <string name="login">Είσοδος</string>
+    <string name="login_no_network">Απαιτείται σύνδεση στο ίντερνετ</string>
+    <string name="studentClass">Τάξη</string>
+    <string name="sections">Κατηγορίες</string>
+    <string name="questions">Ερωτήσεις</string>
+    <string name="next_question">Επόμενη Ερώτηση</string>
+    <string name="backToExit">"Κάντε κλικ ξανά στο κουμπί BACK για έξοδο"</string>
+    <string name="results">Αποτελέσματα</string>
+    <string name="score">%1$d / %2$d</string>
+    <string name="selectAnswer">Παρακαλώ επιλέξτε μια απάντηση</string>
+    <string name="name">Όνομα χρήστη</string>
+    <string name="nameFilled">Όνομα: %1$s</string>
+    <string name="selectName">Παρακαλώ συμπληρώστε το όνομα</string>
+
+    <!--contentDescription-->
+    <string name="backButtonContentDescription" translatable="false">Back Button</string>
+    <string name="homeButtonContentDescription" translatable="false">Home Button</string>
 </resources>

@@ -25,6 +25,8 @@ buildscript {
         navigationVersion = "2.3.2"
         roomVersion = "2.2.6"
         testExtJunitVersion = "1.1.2"
+        firebaseDatabaseVersion = "19.6.0"
+        firebaseUiDatabaseVersion = "6.2.0"
     }
     repositories {
         google()
