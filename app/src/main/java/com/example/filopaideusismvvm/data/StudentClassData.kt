@@ -5,9 +5,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
-@Entity(tableName = "Sections")
+@Entity(tableName = "Student_Class")
 @Parcelize
-data class SectionsData(
+data class StudentClassData(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val title: String? = null,
     val visibility: Boolean? = false
