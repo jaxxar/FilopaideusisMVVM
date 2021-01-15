@@ -5,6 +5,10 @@ import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel() {
 
-    val username = MutableLiveData<String>("")
+    var usernameLiveData: MutableLiveData<Boolean> = MutableLiveData()
+
+    fun validateData(username: String) {
+        usernameLiveData.value = username.isNotEmpty()
+    }
 
 }
