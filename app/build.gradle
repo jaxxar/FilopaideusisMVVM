@@ -29,6 +29,7 @@ android {
     }
     buildFeatures {
         viewBinding true
+        dataBinding true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -58,6 +59,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
     implementation "android.arch.lifecycle:common-java8:$lifecycleVersion"
+    implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
 
     // Navigation Component
     implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
