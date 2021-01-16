@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.adapters.StudentClassAdapter
@@ -16,6 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class StudentClassFragment : Fragment(R.layout.fragment_student_class) {
 
     private val viewModel: StudentClassViewModel by viewModels()
+    private val args: StudentClassFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -23,6 +25,8 @@ class StudentClassFragment : Fragment(R.layout.fragment_student_class) {
         val binding = FragmentStudentClassBinding.bind(view)
 
         val studentClassAdapter = StudentClassAdapter()
+
+        val username = args.username
 
         binding.apply {
             recyclerViewSections.apply {

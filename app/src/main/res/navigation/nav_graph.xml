@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_studentClassFragment_to_sectionsFragment"
             app:destination="@id/sectionsFragment" />
+        <argument
+            android:name="username"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/sectionsFragment"
