@@ -3,6 +3,7 @@ package com.example.filopaideusismvvm.di
 import android.app.Application
 import androidx.room.Room
 import com.example.filopaideusismvvm.data.AppDatabase
+import com.example.filopaideusismvvm.utilities.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +18,7 @@ object DatabaseModule {
     @Provides
     fun provideAppDatabase(
         app: Application
-    ) = Room.databaseBuilder(app, AppDatabase::class.java, "filopaideusis_db")
+    ) = Room.databaseBuilder(app, AppDatabase::class.java, DATABASE_NAME)
         .fallbackToDestructiveMigration()
         .build()
 

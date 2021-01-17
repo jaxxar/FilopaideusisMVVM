@@ -13,5 +13,5 @@ interface StudentClassDao {
     fun getStudentClass(): Flow<List<StudentClassData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(studentClassData: StudentClassData)
+    suspend fun insert(studentClassData: List<StudentClassData>)
 }
