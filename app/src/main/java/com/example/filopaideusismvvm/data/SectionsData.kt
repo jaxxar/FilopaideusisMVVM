@@ -4,9 +4,10 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.filopaideusismvvm.utilities.TABLE_SECTIONS
 import kotlinx.android.parcel.Parcelize
 
-@Entity(tableName = "Sections")
+@Entity(tableName = TABLE_SECTIONS)
 @Parcelize
 data class SectionsData(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,

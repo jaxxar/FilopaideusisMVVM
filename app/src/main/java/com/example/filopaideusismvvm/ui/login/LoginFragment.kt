@@ -8,7 +8,9 @@ import androidx.navigation.fragment.findNavController
 import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.databinding.FragmentLoginBinding
 import com.example.filopaideusismvvm.viewmodels.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : Fragment(R.layout.fragment_login) {
     private val viewModel: LoginViewModel by viewModels()
 

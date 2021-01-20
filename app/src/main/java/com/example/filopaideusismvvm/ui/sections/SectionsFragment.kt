@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.fragment.findNavController
 import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.adapters.SectionsAdapter
 import com.example.filopaideusismvvm.databinding.FragmentSectionsBinding
@@ -23,16 +23,18 @@ class SectionsFragment : Fragment(R.layout.fragment_sections) {
 
         val sectionsAdapter = SectionsAdapter()
 
-        binding.apply {
-            recyclerViewSections.apply {
-                adapter = sectionsAdapter
-                layoutManager = LinearLayoutManager(requireContext())
-                setHasFixedSize(true)
-            }
+        binding.recyclerViewSections.adapter = sectionsAdapter
+        binding.sectionsBackButton.setOnClickListener {
+            val action = SectionsFragmentDirections.actionSectionsFragmentToStudentClassFragment("")
+            findNavController().navigate(action)
         }
 
-        viewModel.sections.observe(viewLifecycleOwner) {
-            sectionsAdapter.submitList(it)
+        subscribeUi(sectionsAdapter)
+    }
+
+    private fun subscribeUi(adapter: SectionsAdapter) {
+        viewModel.sections.observe(viewLifecycleOwner) { sections ->
+            adapter.submitList(sections)
         }
     }
 }

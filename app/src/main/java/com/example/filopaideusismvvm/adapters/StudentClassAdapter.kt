@@ -2,16 +2,19 @@ package com.example.filopaideusismvvm.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filopaideusismvvm.data.StudentClassData
 import com.example.filopaideusismvvm.databinding.DesignSectionsBinding
+import com.example.filopaideusismvvm.ui.studentClass.StudentClassFragmentDirections
 
 class StudentClassAdapter :
     ListAdapter<StudentClassData, StudentClassAdapter.StudentClassViewHolder>(
         StudentClassDiffCallback()
     ) {
+
 
     class StudentClassViewHolder(private val binding: DesignSectionsBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -19,6 +22,11 @@ class StudentClassAdapter :
         fun bind(studentClassData: StudentClassData) {
             binding.apply {
                 sectionsButtonText.text = studentClassData.title
+                sectionsButton.setOnClickListener {
+                    val action =
+                        StudentClassFragmentDirections.actionStudentClassFragmentToSectionsFragment()
+                    findNavController(it).navigate(action)
+                }
             }
         }
     }

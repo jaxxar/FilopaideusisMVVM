@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.adapters.StudentClassAdapter
 import com.example.filopaideusismvvm.databinding.FragmentStudentClassBinding
@@ -28,21 +27,18 @@ class StudentClassFragment : Fragment(R.layout.fragment_student_class) {
 
         val username = args.username
 
-        binding.apply {
-            recyclerViewSections.apply {
-                adapter = studentClassAdapter
-                layoutManager = LinearLayoutManager(requireContext())
-                setHasFixedSize(true)
-            }
-            sectionsBackButton.setOnClickListener {
-                val action =
-                    StudentClassFragmentDirections.actionStudentClassFragmentToLoginFragment()
-                findNavController().navigate(action)
-            }
+        binding.recyclerViewStudentClass.adapter = studentClassAdapter
+        binding.studentClassBackButton.setOnClickListener {
+            val action =
+                StudentClassFragmentDirections.actionStudentClassFragmentToLoginFragment()
+            findNavController().navigate(action)
         }
+        subscribeUi(studentClassAdapter)
+    }
 
-        viewModel.studentClass.observe(viewLifecycleOwner) {
-            studentClassAdapter.submitList(it)
+    private fun subscribeUi(adapter: StudentClassAdapter) {
+        viewModel.studentClass.observe(viewLifecycleOwner) { studentClass ->
+            adapter.submitList(studentClass)
         }
     }
 }
