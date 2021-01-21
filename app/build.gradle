@@ -20,6 +20,12 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+            }
+        }
     }
 
     buildTypes {
@@ -86,6 +92,9 @@ dependencies {
     //FireBase
     implementation "com.google.firebase:firebase-database:$firebaseDatabaseVersion"
     implementation "com.firebaseui:firebase-ui-database:$firebaseUiDatabaseVersion"
+
+    compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$rootProject.assistedInjectVersion"
+    kapt "com.squareup.inject:assisted-inject-processor-dagger2:$rootProject.assistedInjectVersion"
 }
 kapt {
     correctErrorTypes true

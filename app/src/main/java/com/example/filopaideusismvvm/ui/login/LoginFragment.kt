@@ -42,7 +42,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun openActivity() {
         val action =
-            LoginFragmentDirections.actionLoginFragmentToStudentClassFragment(binding.nameInputEditText.text.toString())
+            LoginFragmentDirections.actionLoginFragmentToStudentClassFragment()
         findNavController().navigate(action)
     }
 

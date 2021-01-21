@@ -2,11 +2,13 @@ package com.example.filopaideusismvvm.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filopaideusismvvm.data.SectionsData
 import com.example.filopaideusismvvm.databinding.DesignSectionsBinding
+import com.example.filopaideusismvvm.ui.sections.SectionsFragmentDirections
 
 class SectionsAdapter :
     ListAdapter<SectionsData, SectionsAdapter.SectionViewHolder>(
@@ -19,6 +21,13 @@ class SectionsAdapter :
         fun bind(sectionsData: SectionsData) {
             binding.apply {
                 sectionsButtonText.text = sectionsData.title
+                sectionsButton.setOnClickListener {
+                    val action =
+                        SectionsFragmentDirections.actionSectionsFragmentToQuestionsFragment(
+                            sectionsData.listQuestionsId
+                        )
+                    findNavController(it).navigate(action)
+                }
             }
         }
     }

@@ -11,6 +11,7 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class QuestionData(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    @ColumnInfo(name = "list_questions_id") val listQuestionsId: Int? = 0,
     @ColumnInfo(name = "question") val question: String? = null,
     @ColumnInfo(name = "answer_1") val answer1: String? = null,
     @ColumnInfo(name = "answer_2") val answer2: String? = null,

@@ -24,7 +24,9 @@ class StudentClassAdapter :
                 sectionsButtonText.text = studentClassData.title
                 sectionsButton.setOnClickListener {
                     val action =
-                        StudentClassFragmentDirections.actionStudentClassFragmentToSectionsFragment()
+                        StudentClassFragmentDirections.actionStudentClassFragmentToSectionsFragment(
+                            studentClassData.id
+                        )
                     findNavController(it).navigate(action)
                 }
             }

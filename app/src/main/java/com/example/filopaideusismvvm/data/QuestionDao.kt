@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface QuestionDao {
 
-    @Query("SELECT * FROM $TABLE_QUESTIONS")
-    fun getQuestion(): Flow<List<QuestionData>>
+    @Query("SELECT * FROM $TABLE_QUESTIONS WHERE list_questions_id = :listQuestionsId")
+    fun getQuestion(listQuestionsId: Int): Flow<List<QuestionData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(questionData: QuestionData)

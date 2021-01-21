@@ -5,16 +5,25 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.adapters.SectionsAdapter
 import com.example.filopaideusismvvm.databinding.FragmentSectionsBinding
 import com.example.filopaideusismvvm.viewmodels.SectionsViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class SectionsFragment : Fragment(R.layout.fragment_sections) {
 
-    private val viewModel: SectionsViewModel by viewModels()
+    private val args: SectionsFragmentArgs by navArgs()
+
+    @Inject
+    lateinit var sectionsViewModelFactory: SectionsViewModel.AssistedFactory
+
+    private val viewModel: SectionsViewModel by viewModels {
+        SectionsViewModel.provideFactory(sectionsViewModelFactory, args.classId)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,7 +34,7 @@ class SectionsFragment : Fragment(R.layout.fragment_sections) {
 
         binding.recyclerViewSections.adapter = sectionsAdapter
         binding.sectionsBackButton.setOnClickListener {
-            val action = SectionsFragmentDirections.actionSectionsFragmentToStudentClassFragment("")
+            val action = SectionsFragmentDirections.actionSectionsFragmentToStudentClassFragment()
             findNavController().navigate(action)
         }
 
