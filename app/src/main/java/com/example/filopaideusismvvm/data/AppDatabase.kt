@@ -28,21 +28,21 @@ abstract class AppDatabase : RoomDatabase() {
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
 
-            val studentClassDao = database.get().studentClassDao()
-            val sectionsDao = database.get().sectionsDao()
-            val questionDao = database.get().questionDao()
+            val studentClass = database.get().studentClassDao()
+            val sections = database.get().sectionsDao()
+            val question = database.get().questionDao()
 
             applicationScope.launch {
-                studentClassDao.insert(StudentClassData(1, "Α Δημοτικού", true))
-                studentClassDao.insert(StudentClassData(2, "Β Δημοτικού", true))
-                studentClassDao.insert(StudentClassData(3, "Γ Δημοτικού", true))
-                studentClassDao.insert(StudentClassData(4, "Δ Δημοτικού", true))
-                studentClassDao.insert(StudentClassData(5, "Ε Δημοτικού", true))
-                studentClassDao.insert(StudentClassData(6, "ΣΤ Δημοτικού", true))
+                studentClass.insert(StudentClassData(1, "Α Δημοτικού", true))
+                studentClass.insert(StudentClassData(2, "Β Δημοτικού", true))
+                studentClass.insert(StudentClassData(3, "Γ Δημοτικού", true))
+                studentClass.insert(StudentClassData(4, "Δ Δημοτικού", true))
+                studentClass.insert(StudentClassData(5, "Ε Δημοτικού", true))
+                studentClass.insert(StudentClassData(6, "ΣΤ Δημοτικού", true))
 
-                sectionsDao.insert(SectionsData(1, 1, 1000, "Μαθηματικά", true))
-                sectionsDao.insert(SectionsData(2, 1, 1001, "Γλώσσα", true))
-                sectionsDao.insert(
+                sections.insert(SectionsData(1, 1, 1000, "Μαθηματικά", true))
+                sections.insert(SectionsData(2, 1, 1001, "Γλώσσα", true))
+                sections.insert(
                     SectionsData(
                         3,
                         1,
@@ -51,11 +51,11 @@ abstract class AppDatabase : RoomDatabase() {
                         true
                     )
                 )
-                sectionsDao.insert(SectionsData(4, 1, 1003, "ΜΟΥΣΙΚΗ", true))
-                sectionsDao.insert(SectionsData(5, 1, 1004, "ΜΕΛΕΤΗ ΠΕΡΙΒΑΛΛΟΝΤΟΣ", true))
-                sectionsDao.insert(SectionsData(6, 2, 1001, "Γλώσσα", true))
+                sections.insert(SectionsData(4, 1, 1003, "ΜΟΥΣΙΚΗ", true))
+                sections.insert(SectionsData(5, 1, 1004, "ΜΕΛΕΤΗ ΠΕΡΙΒΑΛΛΟΝΤΟΣ", true))
+                sections.insert(SectionsData(6, 2, 1001, "Γλώσσα", true))
 
-                questionDao.insert(
+                question.insert(
                     QuestionData(
                         1,
                         1000,
@@ -70,7 +70,7 @@ abstract class AppDatabase : RoomDatabase() {
                         null
                     )
                 )
-                questionDao.insert(
+                question.insert(
                     QuestionData(
                         2,
                         1000,
