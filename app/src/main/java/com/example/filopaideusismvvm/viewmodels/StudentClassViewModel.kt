@@ -6,7 +6,7 @@ import androidx.lifecycle.asLiveData
 import com.example.filopaideusismvvm.data.StudentClassDao
 
 class StudentClassViewModel @ViewModelInject constructor(
-    private val studentClassDao: StudentClassDao
+    studentClassDao: StudentClassDao
 ) : ViewModel() {
 
     val studentClass = studentClassDao.getStudentClass().asLiveData()

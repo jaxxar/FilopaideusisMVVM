@@ -18,6 +18,8 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions) {
 
     private val args: QuestionsFragmentArgs by navArgs()
 
+    private lateinit var binding: FragmentQuestionsBinding
+
     @Inject
     lateinit var questionsViewModelFactory: QuestionViewModel.AssistedFactory
 
@@ -28,9 +30,9 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val binding = FragmentQuestionsBinding.bind(view)
+        binding = FragmentQuestionsBinding.bind(view)
 
-        val questionAdapter = QuestionsAdapter()
+        val questionAdapter = QuestionsAdapter(viewModel)
 
         binding.recyclerViewQuestions.adapter = questionAdapter
         binding.questionsBackButton.setOnClickListener {
@@ -39,8 +41,11 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions) {
         }
         binding.nextButton.setOnClickListener {
 
+            binding.recyclerViewQuestions.scrollToPosition(0)
+
         }
         subscribeUi(questionAdapter)
+        initUi()
     }
 
     private fun subscribeUi(adapter: QuestionsAdapter) {
@@ -48,4 +53,11 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions) {
             adapter.submitList(questionList)
         }
     }
+
+    private fun initUi() {
+        viewModel.totalQuestions.observe(viewLifecycleOwner) { number ->
+            binding.questionsCounter.text = number.toString()
+        }
+    }
+
 }

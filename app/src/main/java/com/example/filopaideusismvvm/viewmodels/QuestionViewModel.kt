@@ -8,11 +8,12 @@ import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 
 class QuestionViewModel @AssistedInject constructor(
-    private val questionDao: QuestionDao,
+    questionDao: QuestionDao,
     @Assisted private val id: Int
 ) :
     ViewModel() {
 
+    var totalQuestions = questionDao.getTotalQuestion(id).asLiveData()
     val question = questionDao.getQuestion(id).asLiveData()
 
     @AssistedInject.Factory

@@ -8,7 +8,7 @@ import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
 
 class SectionsViewModel @AssistedInject constructor(
-    private val sectionsDao: SectionsDao,
+    sectionsDao: SectionsDao,
     @Assisted private val id: Int
 ) :
     ViewModel() {

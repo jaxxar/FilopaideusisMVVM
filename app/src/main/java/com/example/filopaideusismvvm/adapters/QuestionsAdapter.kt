@@ -7,15 +7,17 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filopaideusismvvm.data.QuestionData
 import com.example.filopaideusismvvm.databinding.DesignQuestionBinding
+import com.example.filopaideusismvvm.viewmodels.QuestionViewModel
 
-class QuestionsAdapter :
+class QuestionsAdapter(questionViewModel: QuestionViewModel) :
     ListAdapter<QuestionData, QuestionsAdapter.QuestionViewHolder>(QuestionDiffCallback()) {
 
+    private val viewModel = questionViewModel
 
     class QuestionViewHolder(private val binding: DesignQuestionBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(questionData: QuestionData) {
+        fun bind(questionData: QuestionData, viewModel: QuestionViewModel) {
             binding.apply {
                 binding.question.text = questionData.question
                 binding.answer1.text = questionData.answer1
@@ -34,7 +36,7 @@ class QuestionsAdapter :
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
         val currentItem = getItem(position)
-        holder.bind(currentItem)
+        holder.bind(currentItem, viewModel)
     }
 
     private class QuestionDiffCallback : DiffUtil.ItemCallback<QuestionData>() {

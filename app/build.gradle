@@ -97,8 +97,6 @@ dependencies {
     compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$rootProject.assistedInjectVersion"
     kapt "com.squareup.inject:assisted-inject-processor-dagger2:$rootProject.assistedInjectVersion"
 
-    //ViewPager2
-    implementation "androidx.viewpager2:viewpager2:$viewpager2Version"
 }
 kapt {
     correctErrorTypes true
