@@ -43,47 +43,17 @@ abstract class AppDatabase : RoomDatabase() {
                 sections.insert(SectionsData(1, 1, 1000, "Μαθηματικά", true))
                 sections.insert(SectionsData(2, 1, 1001, "Γλώσσα", true))
                 sections.insert(
-                    SectionsData(
-                        3,
-                        1,
-                        1002,
-                        "ΑΝΘΟΛΟΓΙΟ ΛΟΓΟΤΕΧΝΙΚΩΝ ΚΕΙΜΕΝΩΝ",
-                        true
-                    )
+                    SectionsData(3, 1, 1002, "ΑΝΘΟΛΟΓΙΟ ΛΟΓΟΤΕΧΝΙΚΩΝ ΚΕΙΜΕΝΩΝ", true)
                 )
                 sections.insert(SectionsData(4, 1, 1003, "ΜΟΥΣΙΚΗ", true))
                 sections.insert(SectionsData(5, 1, 1004, "ΜΕΛΕΤΗ ΠΕΡΙΒΑΛΛΟΝΤΟΣ", true))
                 sections.insert(SectionsData(6, 2, 1001, "Γλώσσα", true))
 
                 question.insert(
-                    QuestionData(
-                        1,
-                        1000,
-                        "2 + 1 =",
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "3",
-                        null,
-                        null,
-                        null
-                    )
+                    QuestionData(1, 1000, "2 + 1 =", "1", "2", "3", "4", "3", null, null, null)
                 )
                 question.insert(
-                    QuestionData(
-                        2,
-                        1000,
-                        "1 + 3 =",
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "4",
-                        null,
-                        null,
-                        null
-                    )
+                    QuestionData(2, 1000, "1 + 3 =", "1", "2", "3", "4", "4", null, null, null)
                 )
             }
         }
