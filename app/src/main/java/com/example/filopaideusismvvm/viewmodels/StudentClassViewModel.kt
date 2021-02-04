@@ -1,11 +1,13 @@
 package com.example.filopaideusismvvm.viewmodels
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.example.filopaideusismvvm.data.StudentClassDao
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class StudentClassViewModel @ViewModelInject constructor(
+@HiltViewModel
+class StudentClassViewModel @Inject internal constructor(
     studentClassDao: StudentClassDao
 ) : ViewModel() {
 

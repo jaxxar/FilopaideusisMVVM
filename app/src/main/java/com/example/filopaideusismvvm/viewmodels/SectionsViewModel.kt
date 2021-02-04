@@ -4,8 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import com.example.filopaideusismvvm.data.SectionsDao
-import com.squareup.inject.assisted.Assisted
-import com.squareup.inject.assisted.AssistedInject
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 
 class SectionsViewModel @AssistedInject constructor(
     sectionsDao: SectionsDao,
@@ -15,14 +16,9 @@ class SectionsViewModel @AssistedInject constructor(
 
     val sections = sectionsDao.getSections(id).asLiveData()
 
-    @AssistedInject.Factory
-    interface AssistedFactory {
-        fun create(id: Int): SectionsViewModel
-    }
-
     companion object {
         fun provideFactory(
-            assistedFactory: AssistedFactory,
+            assistedFactory: SectionsViewModelAssistedFactory,
             id: Int
         ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
@@ -31,4 +27,9 @@ class SectionsViewModel @AssistedInject constructor(
             }
         }
     }
+}
+
+@AssistedFactory
+interface SectionsViewModelAssistedFactory {
+    fun create(id: Int): SectionsViewModel
 }

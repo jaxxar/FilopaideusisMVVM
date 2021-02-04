@@ -10,6 +10,7 @@ import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.adapters.SectionsAdapter
 import com.example.filopaideusismvvm.databinding.FragmentSectionsBinding
 import com.example.filopaideusismvvm.viewmodels.SectionsViewModel
+import com.example.filopaideusismvvm.viewmodels.SectionsViewModelAssistedFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -19,7 +20,7 @@ class SectionsFragment : Fragment(R.layout.fragment_sections) {
     private val args: SectionsFragmentArgs by navArgs()
 
     @Inject
-    lateinit var sectionsViewModelFactory: SectionsViewModel.AssistedFactory
+    lateinit var sectionsViewModelFactory: SectionsViewModelAssistedFactory
 
     private val viewModel: SectionsViewModel by viewModels {
         SectionsViewModel.provideFactory(sectionsViewModelFactory, args.classId)

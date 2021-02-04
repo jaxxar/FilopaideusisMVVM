@@ -83,8 +83,6 @@ dependencies {
     // Dagger Hilt
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltAndroidXVersion"
-    kapt "androidx.hilt:hilt-compiler:$hiltAndroidXVersion"
 
     // DataStore
     implementation "androidx.datastore:datastore-preferences:$dataStoreVersion"
@@ -92,10 +90,6 @@ dependencies {
     //FireBase
     implementation "com.google.firebase:firebase-database:$firebaseDatabaseVersion"
     implementation "com.firebaseui:firebase-ui-database:$firebaseUiDatabaseVersion"
-
-    //InjectAnnotations
-    compileOnly "com.squareup.inject:assisted-inject-annotations-dagger2:$rootProject.assistedInjectVersion"
-    kapt "com.squareup.inject:assisted-inject-processor-dagger2:$rootProject.assistedInjectVersion"
 
 }
 kapt {

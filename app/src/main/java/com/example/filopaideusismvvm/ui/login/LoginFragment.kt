@@ -2,6 +2,7 @@ package com.example.filopaideusismvvm.ui.login
 
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -25,6 +26,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             loginButton.setOnClickListener {
                 viewModel.validateData(binding.nameInputEditText.text.toString())
             }
+            nameInputEditText.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    viewModel.validateData(binding.nameInputEditText.text.toString())
+                    true
+                } else false
+            }
         }
         initUI()
     }
@@ -45,5 +52,4 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             LoginFragmentDirections.actionLoginFragmentToStudentClassFragment()
         findNavController().navigate(action)
     }
-
 }

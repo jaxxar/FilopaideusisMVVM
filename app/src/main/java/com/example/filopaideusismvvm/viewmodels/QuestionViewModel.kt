@@ -4,8 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import com.example.filopaideusismvvm.data.QuestionDao
-import com.squareup.inject.assisted.Assisted
-import com.squareup.inject.assisted.AssistedInject
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 
 class QuestionViewModel @AssistedInject constructor(
     questionDao: QuestionDao,
@@ -16,14 +17,9 @@ class QuestionViewModel @AssistedInject constructor(
     var totalQuestions = questionDao.getTotalQuestion(id).asLiveData()
     val question = questionDao.getQuestion(id).asLiveData()
 
-    @AssistedInject.Factory
-    interface AssistedFactory {
-        fun create(id: Int): QuestionViewModel
-    }
-
     companion object {
         fun provideFactory(
-            assistedFactory: AssistedFactory,
+            assistedFactory: QuestionViewModelAssistedFactory,
             id: Int
         ): ViewModelProvider.Factory = object : ViewModelProvider.Factory {
             @Suppress("UNCHECKED_CAST")
@@ -32,4 +28,9 @@ class QuestionViewModel @AssistedInject constructor(
             }
         }
     }
+}
+
+@AssistedFactory
+interface QuestionViewModelAssistedFactory {
+    fun create(id: Int): QuestionViewModel
 }

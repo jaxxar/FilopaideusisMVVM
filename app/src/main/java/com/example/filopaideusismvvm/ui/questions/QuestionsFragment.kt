@@ -14,6 +14,7 @@ import com.example.filopaideusismvvm.data.ListQuestionData
 import com.example.filopaideusismvvm.data.QuestionData
 import com.example.filopaideusismvvm.databinding.FragmentQuestionsBinding
 import com.example.filopaideusismvvm.viewmodels.QuestionViewModel
+import com.example.filopaideusismvvm.viewmodels.QuestionViewModelAssistedFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -29,7 +30,7 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions), QuestionCallbac
     private lateinit var binding: FragmentQuestionsBinding
 
     @Inject
-    lateinit var questionsViewModelFactory: QuestionViewModel.AssistedFactory
+    lateinit var questionsViewModelFactory: QuestionViewModelAssistedFactory
 
     private val viewModel: QuestionViewModel by viewModels {
         QuestionViewModel.provideFactory(questionsViewModelFactory, args.listQuestionsId)
