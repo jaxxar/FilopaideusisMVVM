@@ -50,10 +50,10 @@ abstract class AppDatabase : RoomDatabase() {
                 sections.insert(SectionsData(6, 2, 1001, "Γλώσσα", true))
 
                 question.insert(
-                    QuestionData(1, 1000, "2 + 1 =", "1", "2", "3", "4", "3", null, null, null)
+                    QuestionData(1, 1000, "2 + 1 =", "1", "2", "3", "4", "3", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
                 )
                 question.insert(
-                    QuestionData(2, 1000, "1 + 3 =", "1", "2", "3", "4", "4", null, null, null)
+                    QuestionData(2, 1000, "1 + 3 =", "1", "2", "3", "4", "4", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
                 )
             }
         }

@@ -7,24 +7,67 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filopaideusismvvm.data.QuestionData
 import com.example.filopaideusismvvm.databinding.DesignQuestionBinding
+import com.example.filopaideusismvvm.viewmodels.QuestionViewModel
 
-class QuestionsAdapter(private val callback: QuestionCallback) :
+class QuestionsAdapter(private val questionViewModel: QuestionViewModel) :
     ListAdapter<QuestionData, QuestionsAdapter.QuestionViewHolder>(QuestionDiffCallback()) {
 
     class QuestionViewHolder(private val binding: DesignQuestionBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(questionData: QuestionData, callback: QuestionCallback) {
+        fun bind(questionData: QuestionData, questionViewModel: QuestionViewModel) {
             binding.apply {
                 binding.question.text = questionData.question
                 binding.answer1.text = questionData.answer1
                 binding.answer2.text = questionData.answer2
                 binding.answer3.text = questionData.answer3
                 binding.answer4.text = questionData.answer4
-                binding.answer1.setOnClickListener { callback.onQuestionClicked(questionData, questionData.answer1) }
-                binding.answer2.setOnClickListener { callback.onQuestionClicked(questionData, questionData.answer2) }
-                binding.answer3.setOnClickListener { callback.onQuestionClicked(questionData, questionData.answer3) }
-                binding.answer4.setOnClickListener { callback.onQuestionClicked(questionData, questionData.answer4) }
+                when {
+                    questionViewModel.checkChecked(questionData) == 1 -> {
+                        binding.answer1.isChecked = true
+                    }
+                    questionViewModel.checkChecked(questionData) == 2 -> {
+                        binding.answer2.isChecked = true
+                    }
+                    questionViewModel.checkChecked(questionData) == 3 -> {
+                        binding.answer3.isChecked = true
+                    }
+                    questionViewModel.checkChecked(questionData) == 4 -> {
+                        binding.answer4.isChecked = true
+                    }
+                }
+                binding.answer1.setOnClickListener {
+                    questionData.checked1 = true
+                    questionData.checked2 = false
+                    questionData.checked3 = false
+                    questionData.checked4 = false
+                    questionData.submittedAnswer = questionData.answer1
+                    questionViewModel.addToList(questionData)
+                }
+                binding.answer2.setOnClickListener {
+                    questionData.checked1 = false
+                    questionData.checked2 = true
+                    questionData.checked3 = false
+                    questionData.checked4 = false
+                    questionData.submittedAnswer = questionData.answer2
+                    questionViewModel.addToList(questionData)
+                }
+                binding.answer3.setOnClickListener {
+                    questionData.checked1 = false
+                    questionData.checked2 = false
+                    questionData.checked3 = true
+                    questionData.checked4 = false
+                    questionData.submittedAnswer = questionData.answer3
+                    questionViewModel.addToList(questionData)
+                }
+                binding.answer4.setOnClickListener {
+                    questionData.checked1 = false
+                    questionData.checked2 = false
+                    questionData.checked3 = false
+                    questionData.checked4 = true
+                    questionData.submittedAnswer = questionData.answer4
+                    questionViewModel.addToList(questionData)
+                }
             }
         }
     }
@@ -37,7 +80,7 @@ class QuestionsAdapter(private val callback: QuestionCallback) :
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
         val currentItem = getItem(position)
-        holder.bind(currentItem, callback)
+        holder.bind(currentItem, questionViewModel)
     }
 
 
@@ -52,12 +95,5 @@ class QuestionsAdapter(private val callback: QuestionCallback) :
             oldItem: QuestionData,
             newItem: QuestionData
         ): Boolean = oldItem == newItem
-    }
-}
-
-interface QuestionCallback {
-
-    fun onQuestionClicked(questionData: QuestionData, answer: String?) {
-        questionData.submittedAnswer = answer
     }
 }

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.asLiveData
 import com.example.filopaideusismvvm.data.QuestionDao
+import com.example.filopaideusismvvm.data.QuestionData
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -16,6 +17,37 @@ class QuestionViewModel @AssistedInject constructor(
 
     var totalQuestions = questionDao.getTotalQuestion(id).asLiveData()
     val question = questionDao.getQuestion(id).asLiveData()
+    var questionList = mutableListOf<QuestionData>()
+    private var index: Int = 0
+
+    fun checkChecked(questionData: QuestionData): Int {
+        return when {
+            questionData.checked1 == true -> 1
+            questionData.checked2 == true -> 2
+            questionData.checked3 == true -> 3
+            questionData.checked4 == true -> 4
+            else -> -1
+        }
+    }
+
+    fun addToList(questionData: QuestionData) {
+        var questionFound = false
+        if (questionList.size != 0) {
+            for (i in 0 until questionList.size) {
+                questionFound = false
+                if (questionList[i].id == questionData.id) {
+                    questionList.removeAt(i)
+                    questionList.add(i, questionData)
+                    questionFound = true
+                    break
+                }
+            }
+        }
+        if (!questionFound) {
+            questionList.add(index, questionData)
+            index++
+        }
+    }
 
     companion object {
         fun provideFactory(
