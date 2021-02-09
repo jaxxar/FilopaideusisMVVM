@@ -25,6 +25,7 @@ class ResultsFragment : Fragment(R.layout.fragment_results) {
 
         val resultsAdapter = ResultsAdapter(results)
         binding.recyclerViewResults.adapter = resultsAdapter
+        binding.name.text = args.username
 
         binding.resultsBackButton.setOnClickListener {
             val action = ResultsFragmentDirections.actionResultsFragmentToLoginFragment()

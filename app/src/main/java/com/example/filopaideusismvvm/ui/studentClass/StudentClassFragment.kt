@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.adapters.StudentClassAdapter
 import com.example.filopaideusismvvm.databinding.FragmentStudentClassBinding
@@ -15,13 +16,14 @@ import dagger.hilt.android.AndroidEntryPoint
 class StudentClassFragment : Fragment(R.layout.fragment_student_class) {
 
     private val viewModel: StudentClassViewModel by viewModels()
+    private val args: StudentClassFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = FragmentStudentClassBinding.bind(view)
 
-        val studentClassAdapter = StudentClassAdapter()
+        val studentClassAdapter = StudentClassAdapter(args.username)
 
         binding.recyclerViewStudentClass.adapter = studentClassAdapter
         binding.studentClassBackButton.setOnClickListener {

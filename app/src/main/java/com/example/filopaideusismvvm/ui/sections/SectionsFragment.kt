@@ -31,11 +31,11 @@ class SectionsFragment : Fragment(R.layout.fragment_sections) {
 
         val binding = FragmentSectionsBinding.bind(view)
 
-        val sectionsAdapter = SectionsAdapter()
+        val sectionsAdapter = SectionsAdapter(args.username)
 
         binding.recyclerViewSections.adapter = sectionsAdapter
         binding.sectionsBackButton.setOnClickListener {
-            val action = SectionsFragmentDirections.actionSectionsFragmentToStudentClassFragment()
+            val action = SectionsFragmentDirections.actionSectionsFragmentToStudentClassFragment(args.username)
             findNavController().navigate(action)
         }
 

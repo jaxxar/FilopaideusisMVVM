@@ -10,12 +10,12 @@ import com.example.filopaideusismvvm.data.SectionsData
 import com.example.filopaideusismvvm.databinding.DesignSectionsBinding
 import com.example.filopaideusismvvm.ui.sections.SectionsFragmentDirections
 
-class SectionsAdapter :
+class SectionsAdapter(private val username: String) :
     ListAdapter<SectionsData, SectionsAdapter.SectionViewHolder>(
         SectionDiffCallback()
     ) {
 
-    class SectionViewHolder(private val binding: DesignSectionsBinding) :
+    class SectionViewHolder(private val binding: DesignSectionsBinding, private val username: String) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(sectionsData: SectionsData) {
@@ -24,7 +24,8 @@ class SectionsAdapter :
                 sectionsButton.setOnClickListener {
                     val action =
                         SectionsFragmentDirections.actionSectionsFragmentToQuestionsFragment(
-                            sectionsData.listQuestionsId
+                            sectionsData.listQuestionsId,
+                            username
                         )
                     findNavController(it).navigate(action)
                 }
@@ -35,7 +36,7 @@ class SectionsAdapter :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SectionViewHolder {
         val binding =
             DesignSectionsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return SectionViewHolder(binding)
+        return SectionViewHolder(binding, username)
     }
 
     override fun onBindViewHolder(holder: SectionViewHolder, position: Int) {
