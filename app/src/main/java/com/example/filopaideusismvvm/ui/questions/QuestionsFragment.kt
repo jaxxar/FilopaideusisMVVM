@@ -69,9 +69,10 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions), QuestionCallbac
         viewModel.totalQuestions.observe(viewLifecycleOwner) { number ->
             totalQuestions = number
         }
+        onQuestionClicked()
     }
 
     override fun onQuestionClicked() {
-        binding.questionsCounter.text = getString(R.string.totalAnswered, viewModel.returnListSize().toString(), totalQuestions.toString())
+        binding.questionsCounter.text = getString(R.string.totalAnswered, viewModel.returnListSize().toString(), viewModel.totalQuestions.value.toString())
     }
 }

@@ -9,7 +9,6 @@
     <string name="next_question">Επόμενη Ερώτηση</string>
     <string name="backToExit">"Κάντε κλικ ξανά στο κουμπί BACK για έξοδο"</string>
     <string name="results">Αποτελέσματα</string>
-    <string name="score">%1$d / %2$d</string>
     <string name="totalAnswered">%1$s / %2$s</string>
     <string name="selectAnswer">Παρακαλώ επιλέξτε μια απάντηση</string>
     <string name="name">Όνομα χρήστη</string>
