@@ -9,13 +9,13 @@ import com.example.filopaideusismvvm.data.QuestionData
 import com.example.filopaideusismvvm.databinding.DesignQuestionBinding
 import com.example.filopaideusismvvm.viewmodels.QuestionViewModel
 
-class QuestionsAdapter(private val questionViewModel: QuestionViewModel) :
+class QuestionsAdapter(private val questionViewModel: QuestionViewModel, private val callback: QuestionCallback) :
     ListAdapter<QuestionData, QuestionsAdapter.QuestionViewHolder>(QuestionDiffCallback()) {
 
     class QuestionViewHolder(private val binding: DesignQuestionBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(questionData: QuestionData, questionViewModel: QuestionViewModel) {
+        fun bind(questionData: QuestionData, questionViewModel: QuestionViewModel, callback: QuestionCallback) {
             binding.apply {
                 binding.question.text = questionData.question
                 binding.answer1.text = questionData.answer1
@@ -43,6 +43,7 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel) :
                     questionData.checked4 = false
                     questionData.submittedAnswer = questionData.answer1
                     questionViewModel.addToList(questionData)
+                    callback.onQuestionClicked()
                 }
                 binding.answer2.setOnClickListener {
                     questionData.checked1 = false
@@ -51,6 +52,7 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel) :
                     questionData.checked4 = false
                     questionData.submittedAnswer = questionData.answer2
                     questionViewModel.addToList(questionData)
+                    callback.onQuestionClicked()
                 }
                 binding.answer3.setOnClickListener {
                     questionData.checked1 = false
@@ -59,6 +61,7 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel) :
                     questionData.checked4 = false
                     questionData.submittedAnswer = questionData.answer3
                     questionViewModel.addToList(questionData)
+                    callback.onQuestionClicked()
                 }
                 binding.answer4.setOnClickListener {
                     questionData.checked1 = false
@@ -67,6 +70,7 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel) :
                     questionData.checked4 = true
                     questionData.submittedAnswer = questionData.answer4
                     questionViewModel.addToList(questionData)
+                    callback.onQuestionClicked()
                 }
             }
         }
@@ -80,7 +84,7 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel) :
 
     override fun onBindViewHolder(holder: QuestionViewHolder, position: Int) {
         val currentItem = getItem(position)
-        holder.bind(currentItem, questionViewModel)
+        holder.bind(currentItem, questionViewModel, callback)
     }
 
 
@@ -96,4 +100,9 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel) :
             newItem: QuestionData
         ): Boolean = oldItem == newItem
     }
+}
+
+interface QuestionCallback {
+
+    fun onQuestionClicked()
 }

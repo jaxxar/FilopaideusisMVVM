@@ -49,6 +49,23 @@ class QuestionViewModel @AssistedInject constructor(
         }
     }
 
+    fun findUnchecked(): Int {
+        if (questionList.size != 0) {
+            for (i in 0 until questionList.size) {
+                if (questionList[i].checked1 == false && questionList[i].checked2 == false && questionList[i].checked3 == false && questionList[i].checked4 == false) {
+                    return i
+                }
+            }
+        }
+        return 0
+    }
+
+    fun returnListSize(): Int {
+        return if (questionList.size != 0) {
+            questionList.size
+        } else 0
+    }
+
     companion object {
         fun provideFactory(
             assistedFactory: QuestionViewModelAssistedFactory,

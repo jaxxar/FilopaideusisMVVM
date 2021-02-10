@@ -55,6 +55,12 @@ abstract class AppDatabase : RoomDatabase() {
                 question.insert(
                     QuestionData(2, 1000, "1 + 3 =", "1", "2", "3", "4", "4", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
                 )
+                question.insert(
+                    QuestionData(3, 1000, "5 - 2 =", "1", "2", "3", "4", "3", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
+                )
+                question.insert(
+                    QuestionData(4, 1000, "9 - 7 =", "1", "2", "3", "4", "2", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
+                )
             }
         }
     }

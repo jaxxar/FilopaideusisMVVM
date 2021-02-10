@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.filopaideusismvvm.R
+import com.example.filopaideusismvvm.adapters.QuestionCallback
 import com.example.filopaideusismvvm.adapters.QuestionsAdapter
 import com.example.filopaideusismvvm.data.ListQuestionData
 import com.example.filopaideusismvvm.databinding.FragmentQuestionsBinding
@@ -17,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class QuestionsFragment : Fragment(R.layout.fragment_questions) {
+class QuestionsFragment : Fragment(R.layout.fragment_questions), QuestionCallback {
 
     private var totalQuestions: Int = 0
 
@@ -37,7 +38,7 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions) {
 
         binding = FragmentQuestionsBinding.bind(view)
 
-        val questionAdapter = QuestionsAdapter(viewModel)
+        val questionAdapter = QuestionsAdapter(viewModel, this)
 
         binding.recyclerViewQuestions.adapter = questionAdapter
         binding.questionsBackButton.setOnClickListener {
@@ -46,7 +47,7 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions) {
         }
         binding.nextButton.setOnClickListener {
             if (viewModel.questionList.size != totalQuestions) {
-                binding.recyclerViewQuestions.smoothScrollToPosition(0)
+                binding.recyclerViewQuestions.smoothScrollToPosition(viewModel.findUnchecked())
                 Toast.makeText(activity, getText(R.string.selectAnswer), Toast.LENGTH_SHORT).show()
             } else {
                 val listData = ListQuestionData(viewModel.questionList)
@@ -66,8 +67,11 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions) {
 
     private fun initUi() {
         viewModel.totalQuestions.observe(viewLifecycleOwner) { number ->
-            binding.questionsCounter.text = number.toString()
             totalQuestions = number
         }
+    }
+
+    override fun onQuestionClicked() {
+        binding.questionsCounter.text = getString(R.string.totalAnswered, viewModel.returnListSize().toString(), totalQuestions.toString())
     }
 }
