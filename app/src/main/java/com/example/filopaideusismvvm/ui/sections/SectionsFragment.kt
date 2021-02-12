@@ -31,18 +31,15 @@ class SectionsFragment : Fragment(R.layout.fragment_sections) {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = FragmentSectionsBinding.bind(view)
-
         val sectionsAdapter = SectionsAdapter(args.username)
 
         binding.recyclerViewSections.adapter = sectionsAdapter
         binding.sectionsBackButton.setOnClickListener {
-            val action = SectionsFragmentDirections.actionSectionsFragmentToStudentClassFragment(args.username)
-            findNavController().navigate(action)
+            back()
         }
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                val action = SectionsFragmentDirections.actionSectionsFragmentToStudentClassFragment(args.username)
-                findNavController().navigate(action)
+                back()
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
@@ -54,5 +51,10 @@ class SectionsFragment : Fragment(R.layout.fragment_sections) {
         viewModel.sections.observe(viewLifecycleOwner) { sections ->
             adapter.submitList(sections)
         }
+    }
+
+    private fun back() {
+        val action = SectionsFragmentDirections.actionSectionsFragmentToStudentClassFragment(args.username)
+        findNavController().navigate(action)
     }
 }

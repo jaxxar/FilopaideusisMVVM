@@ -16,7 +16,6 @@ import com.example.filopaideusismvvm.viewmodels.ResultsViewModel
 class ResultsFragment : Fragment(R.layout.fragment_results) {
 
     private var results = ListQuestionData(mutableListOf())
-
     private val args: ResultsFragmentArgs by navArgs()
     private lateinit var binding: FragmentResultsBinding
     private val viewModel: ResultsViewModel by viewModels()
@@ -26,25 +25,27 @@ class ResultsFragment : Fragment(R.layout.fragment_results) {
 
         binding = FragmentResultsBinding.bind(view)
         results = args.listData
-
         val resultsAdapter = ResultsAdapter(results)
         binding.recyclerViewResults.adapter = resultsAdapter
         binding.name.text = args.username
         binding.score.text = getString(R.string.totalAnswered, viewModel.calculateCorrect(results).toString(), viewModel.listSize(results).toString())
 
         binding.resultsBackButton.setOnClickListener {
-            val action = ResultsFragmentDirections.actionResultsFragmentToLoginFragment()
-            findNavController().navigate(action)
+            back()
         }
         binding.resultsHomepage.setOnClickListener {
 
         }
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                val action = ResultsFragmentDirections.actionResultsFragmentToLoginFragment()
-                findNavController().navigate(action)
+                back()
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+    }
+
+    private fun back() {
+        val action = ResultsFragmentDirections.actionResultsFragmentToLoginFragment()
+        findNavController().navigate(action)
     }
 }

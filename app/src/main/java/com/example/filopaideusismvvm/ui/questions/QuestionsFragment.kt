@@ -38,13 +38,11 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions), QuestionCallbac
         super.onViewCreated(view, savedInstanceState)
 
         binding = FragmentQuestionsBinding.bind(view)
-
         val questionAdapter = QuestionsAdapter(viewModel, this)
 
         binding.recyclerViewQuestions.adapter = questionAdapter
         binding.questionsBackButton.setOnClickListener {
-            val action = QuestionsFragmentDirections.actionQuestionsFragmentToLoginFragment()
-            findNavController().navigate(action)
+            back()
         }
         binding.nextButton.setOnClickListener {
             if (viewModel.returnListSize() != totalQuestions) {
@@ -58,8 +56,7 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions), QuestionCallbac
         }
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                val action = QuestionsFragmentDirections.actionQuestionsFragmentToLoginFragment()
-                findNavController().navigate(action)
+                back()
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
@@ -82,5 +79,10 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions), QuestionCallbac
 
     override fun onQuestionClicked() {
         binding.questionsCounter.text = getString(R.string.totalAnswered, viewModel.returnListSize().toString(), viewModel.totalQuestions.value.toString())
+    }
+
+    private fun back() {
+        val action = QuestionsFragmentDirections.actionQuestionsFragmentToLoginFragment()
+        findNavController().navigate(action)
     }
 }

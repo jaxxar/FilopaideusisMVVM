@@ -23,20 +23,16 @@ class StudentClassFragment : Fragment(R.layout.fragment_student_class) {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = FragmentStudentClassBinding.bind(view)
-
         val studentClassAdapter = StudentClassAdapter(args.username)
 
         binding.recyclerViewStudentClass.adapter = studentClassAdapter
         binding.studentClassBackButton.setOnClickListener {
-            val action =
-                StudentClassFragmentDirections.actionStudentClassFragmentToLoginFragment()
-            findNavController().navigate(action)
+            back()
         }
         subscribeUi(studentClassAdapter)
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                val action = StudentClassFragmentDirections.actionStudentClassFragmentToLoginFragment()
-                findNavController().navigate(action)
+                back()
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
@@ -47,5 +43,10 @@ class StudentClassFragment : Fragment(R.layout.fragment_student_class) {
         viewModel.studentClass.observe(viewLifecycleOwner) { studentClass ->
             adapter.submitList(studentClass)
         }
+    }
+
+    private fun back() {
+        val action = StudentClassFragmentDirections.actionStudentClassFragmentToLoginFragment()
+        findNavController().navigate(action)
     }
 }
