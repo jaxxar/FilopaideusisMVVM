@@ -3,6 +3,7 @@ package com.example.filopaideusismvvm.ui.questions
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -55,6 +56,13 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions), QuestionCallbac
                 findNavController().navigate(action)
             }
         }
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val action = QuestionsFragmentDirections.actionQuestionsFragmentToLoginFragment()
+                findNavController().navigate(action)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
         subscribeUi(questionAdapter)
         initUi()
     }

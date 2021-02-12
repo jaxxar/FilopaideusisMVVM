@@ -2,6 +2,7 @@ package com.example.filopaideusismvvm.ui.studentClass
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -32,6 +33,14 @@ class StudentClassFragment : Fragment(R.layout.fragment_student_class) {
             findNavController().navigate(action)
         }
         subscribeUi(studentClassAdapter)
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val action = StudentClassFragmentDirections.actionStudentClassFragmentToLoginFragment()
+                findNavController().navigate(action)
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+
     }
 
     private fun subscribeUi(adapter: StudentClassAdapter) {
