@@ -3,18 +3,18 @@ package com.example.filopaideusismvvm.ui.studentClass
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.adapters.StudentClassAdapter
 import com.example.filopaideusismvvm.databinding.FragmentStudentClassBinding
+import com.example.filopaideusismvvm.ui.BaseFragment
 import com.example.filopaideusismvvm.viewmodels.StudentClassViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class StudentClassFragment : Fragment(R.layout.fragment_student_class) {
+class StudentClassFragment : BaseFragment(R.layout.fragment_student_class) {
 
     private val viewModel: StudentClassViewModel by viewModels()
     private val args: StudentClassFragmentArgs by navArgs()
@@ -26,7 +26,7 @@ class StudentClassFragment : Fragment(R.layout.fragment_student_class) {
         val studentClassAdapter = StudentClassAdapter(args.username)
 
         binding.recyclerViewStudentClass.adapter = studentClassAdapter
-        binding.studentClassBackButton.setOnClickListener {
+        binding.studentClassBackButton.setSafeOnClickListener {
             back()
         }
         subscribeUi(studentClassAdapter)

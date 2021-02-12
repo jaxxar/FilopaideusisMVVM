@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -13,13 +12,14 @@ import com.example.filopaideusismvvm.adapters.QuestionCallback
 import com.example.filopaideusismvvm.adapters.QuestionsAdapter
 import com.example.filopaideusismvvm.data.ListQuestionData
 import com.example.filopaideusismvvm.databinding.FragmentQuestionsBinding
+import com.example.filopaideusismvvm.ui.BaseFragment
 import com.example.filopaideusismvvm.viewmodels.QuestionViewModel
 import com.example.filopaideusismvvm.viewmodels.QuestionViewModelAssistedFactory
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class QuestionsFragment : Fragment(R.layout.fragment_questions), QuestionCallback {
+class QuestionsFragment : BaseFragment(R.layout.fragment_questions), QuestionCallback {
 
     private var totalQuestions: Int = 0
 
@@ -44,7 +44,7 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions), QuestionCallbac
         binding.questionsBackButton.setOnClickListener {
             back()
         }
-        binding.nextButton.setOnClickListener {
+        binding.nextButton.setSafeOnClickListener {
             if (viewModel.returnListSize() != totalQuestions) {
                 binding.recyclerViewQuestions.smoothScrollToPosition(viewModel.findUnchecked())
                 Toast.makeText(activity, getText(R.string.selectAnswer), Toast.LENGTH_SHORT).show()

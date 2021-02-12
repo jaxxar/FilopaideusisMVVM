@@ -3,16 +3,16 @@ package com.example.filopaideusismvvm.ui.login
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.databinding.FragmentLoginBinding
+import com.example.filopaideusismvvm.ui.BaseFragment
 import com.example.filopaideusismvvm.viewmodels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment : Fragment(R.layout.fragment_login) {
+class LoginFragment : BaseFragment(R.layout.fragment_login) {
     private val viewModel: LoginViewModel by viewModels()
 
     private lateinit var binding: FragmentLoginBinding
@@ -23,7 +23,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         binding = FragmentLoginBinding.bind(view)
 
         binding.apply {
-            loginButton.setOnClickListener {
+            loginButton.setSafeOnClickListener {
                 viewModel.validateData(binding.nameInputEditText.text.toString())
             }
             nameInputEditText.setOnEditorActionListener { _, actionId, _ ->
