@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_studentClassFragment"
-            app:destination="@id/studentClassFragment" />
+            app:destination="@id/studentClassFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/studentClassFragment"
@@ -21,10 +25,18 @@
         tools:layout="@layout/fragment_student_class">
         <action
             android:id="@+id/action_studentClassFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_in_right" />
         <action
             android:id="@+id/action_studentClassFragment_to_sectionsFragment"
-            app:destination="@id/sectionsFragment" />
+            app:destination="@id/sectionsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <argument
             android:name="username"
             app:argType="string" />
@@ -36,16 +48,21 @@
         tools:layout="@layout/fragment_sections">
         <action
             android:id="@+id/action_sectionsFragment_to_questionsFragment"
-            app:destination="@id/questionsFragment" />
+            app:destination="@id/questionsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <argument
             android:name="class_id"
             app:argType="integer" />
         <action
-            android:id="@+id/action_sectionsFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
             android:id="@+id/action_sectionsFragment_to_studentClassFragment"
-            app:destination="@id/studentClassFragment" />
+            app:destination="@id/studentClassFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_in_right" />
         <argument
             android:name="username"
             app:argType="string" />
@@ -57,13 +74,21 @@
         tools:layout="@layout/fragment_questions">
         <action
             android:id="@+id/action_questionsFragment_to_resultsFragment"
-            app:destination="@id/resultsFragment" />
+            app:destination="@id/resultsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <argument
             android:name="listQuestionsId"
             app:argType="integer" />
         <action
             android:id="@+id/action_questionsFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_in_right" />
         <argument
             android:name="username"
             app:argType="string" />
@@ -75,7 +100,11 @@
         tools:layout="@layout/fragment_results">
         <action
             android:id="@+id/action_resultsFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_out_left"
+            app:popExitAnim="@anim/slide_in_right" />
         <argument
             android:name="listData"
             app:argType="com.example.filopaideusismvvm.data.ListQuestionData" />

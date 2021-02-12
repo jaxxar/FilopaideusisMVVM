@@ -51,15 +51,18 @@ class QuestionViewModel @AssistedInject constructor(
 
     fun findUnchecked(): Int {
         if (questionList.size != 0) {
-            for (i in question.value!!.indices) {
-                var itemNotFound = true
-                var position = 0
-                for (j in 0 until questionList.size) {
-                    if (questionList[j].id == question.value!![i].id) {
-                        itemNotFound = false
-                    } else position = i
+            if (question.value == null) return 0
+            else {
+                for (i in question.value!!.indices) {
+                    var itemNotFound = true
+                    var position = 0
+                    for (j in 0 until questionList.size) {
+                        if (questionList[j].id == question.value!![i].id) {
+                            itemNotFound = false
+                        } else position = i
+                    }
+                    if (itemNotFound) return position
                 }
-                if (itemNotFound) return position
             }
         }
         return 0
