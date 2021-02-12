@@ -46,11 +46,11 @@ class QuestionsFragment : Fragment(R.layout.fragment_questions), QuestionCallbac
             findNavController().navigate(action)
         }
         binding.nextButton.setOnClickListener {
-            if (viewModel.questionList.size != totalQuestions) {
+            if (viewModel.returnListSize() != totalQuestions) {
                 binding.recyclerViewQuestions.smoothScrollToPosition(viewModel.findUnchecked())
                 Toast.makeText(activity, getText(R.string.selectAnswer), Toast.LENGTH_SHORT).show()
             } else {
-                val listData = ListQuestionData(viewModel.questionList)
+                val listData = ListQuestionData(viewModel.returnList())
                 val action = QuestionsFragmentDirections.actionQuestionsFragmentToResultsFragment(listData, args.username)
                 findNavController().navigate(action)
             }

@@ -17,7 +17,7 @@ class QuestionViewModel @AssistedInject constructor(
 
     var totalQuestions = questionDao.getTotalQuestion(id).asLiveData()
     val question = questionDao.getQuestion(id).asLiveData()
-    var questionList = mutableListOf<QuestionData>()
+    private var questionList = mutableListOf<QuestionData>()
     private var index: Int = 0
 
     fun checkChecked(questionData: QuestionData): Int {
@@ -51,10 +51,15 @@ class QuestionViewModel @AssistedInject constructor(
 
     fun findUnchecked(): Int {
         if (questionList.size != 0) {
-            for (i in 0 until questionList.size) {
-                if (questionList[i].checked1 == false && questionList[i].checked2 == false && questionList[i].checked3 == false && questionList[i].checked4 == false) {
-                    return i
+            for (i in question.value!!.indices) {
+                var itemNotFound = true
+                var position = 0
+                for (j in 0 until questionList.size) {
+                    if (questionList[j].id == question.value!![i].id) {
+                        itemNotFound = false
+                    } else position = i
                 }
+                if (itemNotFound) return position
             }
         }
         return 0
@@ -64,6 +69,10 @@ class QuestionViewModel @AssistedInject constructor(
         return if (questionList.size != 0) {
             questionList.size
         } else 0
+    }
+
+    fun returnList(): MutableList<QuestionData> {
+        return questionList
     }
 
     companion object {
