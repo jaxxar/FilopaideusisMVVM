@@ -53,12 +53,8 @@ class ResultsFragment : BaseFragment(R.layout.fragment_results) {
     private fun share() {
         val sharingIntent = Intent(Intent.ACTION_SEND)
         sharingIntent.type = "text/plain"
-        val shareBody = getShareBody()
+        val shareBody = viewModel.shareBody(results, args.username, getString(R.string.question), getString(R.string.correctAnswer), getString(R.string.submittedAnswer))
         sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
         startActivity(Intent.createChooser(sharingIntent, getString(R.string.shareVia)))
-    }
-
-    private fun getShareBody(): String {
-        return args.username + " " + getString(R.string.totalAnswered, viewModel.calculateCorrect(results).toString(), viewModel.listSize(results).toString())
     }
 }

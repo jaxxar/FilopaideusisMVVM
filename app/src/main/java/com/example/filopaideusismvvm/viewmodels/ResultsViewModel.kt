@@ -20,4 +20,12 @@ class ResultsViewModel : ViewModel() {
         return results.list?.size!!
     }
 
+    fun shareBody(results: ListQuestionData, username: String, question: String, correctAnswer: String, submittedAnswer: String): String {
+        var shareBody = username + " " + calculateCorrect(results) + "/" + listSize(results) + "\n"
+        for (i in 0 until listSize(results)) {
+            shareBody += "\n" + question + (results.list?.get(i)?.question ?: "") + "\n" + submittedAnswer + (results.list?.get(i)?.submittedAnswer
+                ?: "") + "\n" + correctAnswer + (results.list?.get(i)?.correctAnswer ?: "") + "\n"
+        }
+        return shareBody
+    }
 }

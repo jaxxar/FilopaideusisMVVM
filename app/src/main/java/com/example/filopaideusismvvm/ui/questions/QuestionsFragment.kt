@@ -71,8 +71,8 @@ class QuestionsFragment : BaseFragment(R.layout.fragment_questions), QuestionCal
     private fun initUi() {
         viewModel.totalQuestions.observe(viewLifecycleOwner) { number ->
             totalQuestions = number
+            onQuestionClicked()
         }
-        onQuestionClicked()
     }
 
     override fun onQuestionClicked() {
