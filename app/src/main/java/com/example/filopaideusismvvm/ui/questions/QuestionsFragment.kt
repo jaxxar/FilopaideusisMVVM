@@ -22,9 +22,7 @@ import javax.inject.Inject
 class QuestionsFragment : BaseFragment(R.layout.fragment_questions), QuestionCallback {
 
     private var totalQuestions: Int = 0
-
     private val args: QuestionsFragmentArgs by navArgs()
-
     private lateinit var binding: FragmentQuestionsBinding
 
     @Inject

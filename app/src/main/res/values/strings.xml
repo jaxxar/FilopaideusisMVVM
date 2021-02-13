@@ -14,6 +14,7 @@
     <string name="name">Όνομα χρήστη</string>
     <string name="nameFilled">Όνομα: %1$s</string>
     <string name="selectName">Παρακαλώ συμπληρώστε το όνομα</string>
+    <string name="shareVia">Αποστολή με:</string>
 
     <!--contentDescription-->
     <string name="backButtonContentDescription" translatable="false">Back Button</string>

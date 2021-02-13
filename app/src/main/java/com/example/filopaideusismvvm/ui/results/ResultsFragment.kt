@@ -1,5 +1,6 @@
 package com.example.filopaideusismvvm.ui.results
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
@@ -34,7 +35,7 @@ class ResultsFragment : BaseFragment(R.layout.fragment_results) {
             back()
         }
         binding.resultsShare.setSafeOnClickListener {
-
+            share()
         }
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -47,5 +48,17 @@ class ResultsFragment : BaseFragment(R.layout.fragment_results) {
     private fun back() {
         val action = ResultsFragmentDirections.actionResultsFragmentToLoginFragment()
         findNavController().navigate(action)
+    }
+
+    private fun share() {
+        val sharingIntent = Intent(Intent.ACTION_SEND)
+        sharingIntent.type = "text/plain"
+        val shareBody = getShareBody()
+        sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
+        startActivity(Intent.createChooser(sharingIntent, getString(R.string.shareVia)))
+    }
+
+    private fun getShareBody(): String {
+        return args.username + " " + getString(R.string.totalAnswered, viewModel.calculateCorrect(results).toString(), viewModel.listSize(results).toString())
     }
 }
