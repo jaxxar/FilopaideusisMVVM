@@ -1,5 +1,6 @@
 package com.example.filopaideusismvvm.viewmodels
 
+import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModel
 import com.example.filopaideusismvvm.data.ListQuestionData
 
@@ -23,8 +24,17 @@ class ResultsViewModel : ViewModel() {
     fun shareBody(results: ListQuestionData, username: String, question: String, correctAnswer: String, submittedAnswer: String): String {
         var shareBody = username + " " + calculateCorrect(results) + "/" + listSize(results) + "\n"
         for (i in 0 until listSize(results)) {
-            shareBody += "\n" + question + (results.list?.get(i)?.question ?: "") + "\n" + submittedAnswer + (results.list?.get(i)?.submittedAnswer
-                ?: "") + "\n" + correctAnswer + (results.list?.get(i)?.correctAnswer ?: "") + "\n"
+            shareBody += "\n" + question + results.list?.get(i)?.question.let {
+                HtmlCompat.fromHtml(
+                    it!!,
+                    HtmlCompat.FROM_HTML_MODE_LEGACY
+                )
+            } + "\n" + submittedAnswer + results.list?.get(i)?.submittedAnswer.let {
+                HtmlCompat.fromHtml(
+                    it!!,
+                    HtmlCompat.FROM_HTML_MODE_LEGACY
+                )
+            } + "\n" + correctAnswer + results.list?.get(i)?.correctAnswer.let { HtmlCompat.fromHtml(it!!, HtmlCompat.FROM_HTML_MODE_LEGACY) } + "\n"
         }
         return shareBody
     }
