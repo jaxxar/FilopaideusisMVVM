@@ -2,6 +2,7 @@ package com.example.filopaideusismvvm.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -17,11 +18,11 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel, private
 
         fun bind(questionData: QuestionData, questionViewModel: QuestionViewModel, callback: QuestionCallback) {
             binding.apply {
-                binding.question.text = questionData.question
-                binding.answer1.text = questionData.answer1
-                binding.answer2.text = questionData.answer2
-                binding.answer3.text = questionData.answer3
-                binding.answer4.text = questionData.answer4
+                binding.question.text = questionData.question?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
+                binding.answer1.text = questionData.answer1?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
+                binding.answer2.text = questionData.answer2?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
+                binding.answer3.text = questionData.answer3?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
+                binding.answer4.text = questionData.answer4?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
                 when {
                     questionViewModel.checkChecked(questionData) == 1 -> {
                         binding.answer1.isChecked = true

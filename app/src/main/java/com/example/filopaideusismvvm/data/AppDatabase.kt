@@ -47,10 +47,13 @@ abstract class AppDatabase : RoomDatabase() {
                 )
                 sections.insert(SectionsData(4, 1, 1003, "ΜΟΥΣΙΚΗ", true))
                 sections.insert(SectionsData(5, 1, 1004, "ΜΕΛΕΤΗ ΠΕΡΙΒΑΛΛΟΝΤΟΣ", true))
-                sections.insert(SectionsData(6, 2, 1001, "Γλώσσα", true))
+                sections.insert(SectionsData(6, 2, 1005, "Γλώσσα", true))
+
+                sections.insert(SectionsData(7, 6, 1100, "Ιστορία", true))
+                sections.insert(SectionsData(8, 6, 1101, "Γλώσσα", true))
 
                 question.insert(
-                    QuestionData(1, 1000, "2 + 1 =", "1", "2", "3", "4", "3", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
+                    QuestionData(1, 1000, "2 + <i><strong>1</strong></i> =", "1", "2", "3", "4", "3", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
                 )
                 question.insert(
                     QuestionData(2, 1000, "1 + 3 =", "1", "2", "3", "4", "4", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
@@ -60,6 +63,120 @@ abstract class AppDatabase : RoomDatabase() {
                 )
                 question.insert(
                     QuestionData(4, 1000, "9 - 7 =", "1", "2", "3", "4", "2", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
+                )
+                question.insert(
+                    QuestionData(
+                        5,
+                        1101,
+                        "Χάθηκαν τα βιβλία <i><strong>του Γιώργου</strong></i>",
+                        "κτητική",
+                        "περιεχομένου",
+                        "υποκειμενική",
+                        "αντικειμενική",
+                        "κτητική",
+                        null,
+                        checked1 = false,
+                        checked2 = false,
+                        checked3 = false,
+                        checked4 = false,
+                        null,
+                        null
+                    )
+                )
+                question.insert(
+                    QuestionData(
+                        6,
+                        1101,
+                        "Μπήκαν στην αποθήκη <i><strong>των βιβλίων</strong></i>.",
+                        "κτητική",
+                        "περιεχομένου",
+                        "υποκειμενική",
+                        "αντικειμενική",
+                        "περιεχομένου",
+                        null,
+                        checked1 = false,
+                        checked2 = false,
+                        checked3 = false,
+                        checked4 = false,
+                        null,
+                        null
+                    )
+                )
+                question.insert(
+                    QuestionData(
+                        7,
+                        1101,
+                        "Καταστράφηκαν τα φτερά <i><strong>του αεροπλάνου</strong></i>.",
+                        "κτητική",
+                        "περιεχομένου",
+                        "υποκειμενική",
+                        "αντικειμενική",
+                        "κτητική",
+                        null,
+                        checked1 = false,
+                        checked2 = false,
+                        checked3 = false,
+                        checked4 = false,
+                        null,
+                        null
+                    )
+                )
+                question.insert(
+                    QuestionData(
+                        8,
+                        1101,
+                        "Μου πήρε χρόνο το κόψιμο <i><strong>του χαρτιού</strong></i>.",
+                        "κτητική",
+                        "περιεχομένου",
+                        "υποκειμενική",
+                        "αντικειμενική",
+                        "αντικειμενική",
+                        null,
+                        checked1 = false,
+                        checked2 = false,
+                        checked3 = false,
+                        checked4 = false,
+                        null,
+                        null
+                    )
+                )
+                question.insert(
+                    QuestionData(
+                        9,
+                        1101,
+                        "Παρακολουθούμε την επιστροφή <i><strong>των πουλιών</strong></i>.",
+                        "κτητική",
+                        "περιεχομένου",
+                        "υποκειμενική",
+                        "αντικειμενική",
+                        "υποκειμενική",
+                        null,
+                        checked1 = false,
+                        checked2 = false,
+                        checked3 = false,
+                        checked4 = false,
+                        null,
+                        null
+                    )
+                )
+                question.insert(
+                    QuestionData(
+                        10,
+                        1100,
+                        "Η επανάσταση της 3ης Σεπτεμβρίου 1843 υπήρξε:",
+                        "γέννημα της παρακμής των ξενικών κομμάτων",
+                        "αποτέλεσμα της επέμβασης των ξένων δυνάμεων στην εσωτερική πολιτική του νεοσύστατου ελληνικού κράτους",
+                        "καταλυτικός παράγοντας για τη διαμόρφωση των πολιτικών πραγμάτων",
+                        "αποτέλεσμα της δυναμικής παρουσίας του ρωσικού κόμματος",
+                        "καταλυτικός παράγοντας για τη διαμόρφωση των πολιτικών πραγμάτων",
+                        null,
+                        checked1 = false,
+                        checked2 = false,
+                        checked3 = false,
+                        checked4 = false,
+                        null,
+                        null
+                    )
                 )
             }
         }

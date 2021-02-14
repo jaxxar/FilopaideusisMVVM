@@ -4,6 +4,7 @@ import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filopaideusismvvm.data.ListQuestionData
 import com.example.filopaideusismvvm.databinding.DesignResultBinding
@@ -27,7 +28,7 @@ class ResultsAdapter(
         val answer4 = results.list?.get(position)?.answer4
         val correctAnswer = results.list?.get(position)?.correctAnswer
         val submittedAnswer = results.list?.get(position)?.submittedAnswer
-        holder.question.text = results.list?.get(position)?.question ?: ""
+        holder.question.text = results.list?.get(position)?.question.let { HtmlCompat.fromHtml(it!!, HtmlCompat.FROM_HTML_MODE_LEGACY) }
         resultCheck(answer1, correctAnswer, submittedAnswer, holder.answer1)
         resultCheck(answer2, correctAnswer, submittedAnswer, holder.answer2)
         resultCheck(answer3, correctAnswer, submittedAnswer, holder.answer3)
@@ -53,7 +54,7 @@ class ResultsAdapter(
         submittedAnswer: String?,
         view: TextView
     ) {
-        view.text = answer
+        view.text = answer.let { HtmlCompat.fromHtml(it!!, HtmlCompat.FROM_HTML_MODE_LEGACY) }
         if (answer == submittedAnswer) {
             if (submittedAnswer == correctAnswer) {
                 view.setTextColor(Color.GREEN)
