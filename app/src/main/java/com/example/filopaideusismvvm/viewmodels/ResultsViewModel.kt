@@ -17,6 +17,14 @@ class ResultsViewModel : ViewModel() {
         }
     }
 
+    fun getPercent(results: ListQuestionData): Int {
+        return if (results.list?.size == 0) 0
+        else {
+            val percentage = (calculateCorrect(results) * 100) / listSize(results)
+            percentage
+        }
+    }
+
     fun listSize(results: ListQuestionData): Int {
         return results.list?.size!!
     }

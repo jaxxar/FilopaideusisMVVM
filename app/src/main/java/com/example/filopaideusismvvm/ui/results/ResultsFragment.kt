@@ -1,5 +1,6 @@
 package com.example.filopaideusismvvm.ui.results
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -21,6 +22,7 @@ class ResultsFragment : BaseFragment(R.layout.fragment_results) {
     private lateinit var binding: FragmentResultsBinding
     private val viewModel: ResultsViewModel by viewModels()
 
+    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -28,8 +30,11 @@ class ResultsFragment : BaseFragment(R.layout.fragment_results) {
         results = args.listData
         val resultsAdapter = ResultsAdapter(results)
         binding.recyclerViewResults.adapter = resultsAdapter
-        binding.name.text = args.username
-        binding.score.text = getString(R.string.totalAnswered, viewModel.calculateCorrect(results).toString(), viewModel.listSize(results).toString())
+        binding.name.text = getString(R.string.nameFilled, args.username)
+        binding.totalQuestions.text = getString(R.string.totalQuestions, viewModel.listSize(results).toString())
+        binding.correctAnswers.text = getString(R.string.totalCorrectAnswers, viewModel.calculateCorrect(results).toString())
+        binding.score.progress = viewModel.getPercent(results)
+        binding.scoreText.text = "${viewModel.getPercent(results)}%"
 
         binding.resultsBackButton.setSafeOnClickListener {
             back()

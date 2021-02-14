@@ -10,4 +10,8 @@
     <dimen name="basic_card_corner_radius">20dp</dimen>
     <dimen name="text_size_button">16sp</dimen>
     <dimen name="section_button_width">300dp</dimen>
+
+    <!-- Card   -->
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_corner_radius">12dp</dimen>
 </resources>

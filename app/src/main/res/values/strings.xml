@@ -18,6 +18,8 @@
     <string name="question">Ερώτηση: &#160;</string>
     <string name="correctAnswer">Σωστή απάντηση: &#160;</string>
     <string name="submittedAnswer">Απάντηση: &#160;</string>
+    <string name="totalQuestions">Σύνολο ερωτήσεων: %1$s</string>
+    <string name="totalCorrectAnswers">Σωστές απαντήσεις: %1$s</string>
 
     <!--contentDescription-->
     <string name="backButtonContentDescription" translatable="false">Back Button</string>

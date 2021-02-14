@@ -42,18 +42,51 @@
         style="@style/TextColorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="15dp"
+        android:layout_margin="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultsTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/resultsTitle"
+        tools:text="Όνομα: Mitsos" />
 
     <TextView
-        android:id="@+id/score"
+        android:id="@+id/totalQuestions"
         style="@style/TextColorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:text="Σύνολο ερωτήσεων: 12" />
+
+    <TextView
+        android:id="@+id/correctAnswers"
+        style="@style/TextColorWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalQuestions"
+        tools:text="Σωστές απαντήσεις: 9" />
+
+    <ProgressBar
+        android:id="@+id/score"
+        style="@style/CircularDeterminateProgressBar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_margin="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resultsTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/resultsTitle"
+        tools:progress="60" />
+
+    <TextView
+        android:id="@+id/scoreText"
+        style="@style/TextColorWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/score"
+        app:layout_constraintEnd_toEndOf="@+id/score"
+        app:layout_constraintStart_toStartOf="@+id/score"
+        app:layout_constraintTop_toTopOf="@+id/score"
+        tools:text="75%" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_results"
@@ -63,7 +96,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/score"
         tools:listitem="@layout/design_result" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">#212121</item>
         <!-- Customize your theme here. -->
         <item name="BackgroundColor">#303030</item>
+        <item name="BackgroundColorElement">#a2acbd</item>
         <item name="TextColor">#fff</item>
         <item name="ButtonColor">#424242</item>
         <item name="ListButtonColor">#424242</item>
@@ -23,14 +24,16 @@
         <item name="android:background">?attr/BackgroundColor</item>
     </style>
 
+    <style name="BackgroundColorElement" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">?attr/BackgroundColorElement</item>
+    </style>
+
     <style name="TextColorWhite" parent="TextAppearance.AppCompat">
         <item name="android:textColor">?attr/TextColor</item>
         <item name="android:textColorHint">?attr/TextColor</item>
     </style>
 
-    <style name="TextColorWhite.big" parent="TextAppearance.AppCompat">
-        <item name="android:textColor">?attr/TextColor</item>
-        <item name="android:textColorHint">?attr/TextColor</item>
+    <style name="TextColorWhite.big" parent="TextColorWhite">
         <item name="android:textSize">@dimen/text_size_header</item>
     </style>
 
@@ -58,8 +61,7 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
-    <style name="TextColorWhite.header" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:textColor">?attr/TextColor</item>
+    <style name="TextColorWhite.header" parent="TextColorWhite">
         <item name="android:background">?attr/HeaderColor</item>
     </style>
 
@@ -92,7 +94,11 @@
         <item name="android:textColorHint">?attr/TextColor</item>
         <item name="android:colorAccent">?attr/TextColor</item>
         <item name="passwordToggleTint">?attr/TextColor</item>
+    </style>
 
+    <style name="CircularDeterminateProgressBar">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/percentage_circle</item>
     </style>
 
 </resources>
