@@ -15,6 +15,7 @@
         <item name="BackgroundColor">#303030</item>
         <item name="BackgroundColorElement">#a2acbd</item>
         <item name="TextColor">#fff</item>
+        <item name="VectorColor">#fff</item>
         <item name="ButtonColor">#424242</item>
         <item name="ListButtonColor">#424242</item>
         <item name="HeaderColor">#212121</item>

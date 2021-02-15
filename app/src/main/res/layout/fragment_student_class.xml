@@ -24,7 +24,7 @@
         android:contentDescription="@string/backButtonContentDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
     <ImageView
         android:id="@+id/studentClassHomepage"
@@ -35,7 +35,7 @@
         android:contentDescription="@string/homeButtonContentDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/home" />
+        app:srcCompat="@drawable/ic_baseline_home_24" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"

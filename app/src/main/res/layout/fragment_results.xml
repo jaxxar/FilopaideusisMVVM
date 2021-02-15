@@ -24,7 +24,7 @@
         android:contentDescription="@string/backButtonContentDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
     <ImageView
         android:id="@+id/resultsShare"
@@ -35,7 +35,7 @@
         android:contentDescription="@string/homeButtonContentDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/round_share_white_36dp" />
+        app:srcCompat="@drawable/ic_baseline_share_24" />
 
     <TextView
         android:id="@+id/name"
