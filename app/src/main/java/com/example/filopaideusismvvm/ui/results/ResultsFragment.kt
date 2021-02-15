@@ -31,6 +31,8 @@ class ResultsFragment : BaseFragment(R.layout.fragment_results) {
         val resultsAdapter = ResultsAdapter(results)
         binding.recyclerViewResults.adapter = resultsAdapter
         binding.name.text = getString(R.string.nameFilled, args.username)
+        binding.studentClass.text = args.studentClass
+        binding.topic.text = args.topic
         binding.totalQuestions.text = getString(R.string.totalQuestions, viewModel.listSize(results).toString())
         binding.correctAnswers.text = getString(R.string.totalCorrectAnswers, viewModel.calculateCorrect(results).toString())
         binding.score.progress = viewModel.getPercent(results)
@@ -58,7 +60,7 @@ class ResultsFragment : BaseFragment(R.layout.fragment_results) {
     private fun share() {
         val sharingIntent = Intent(Intent.ACTION_SEND)
         sharingIntent.type = "text/plain"
-        val shareBody = viewModel.shareBody(results, args.username, getString(R.string.question), getString(R.string.correctAnswer), getString(R.string.submittedAnswer))
+        val shareBody = viewModel.shareBody(results, args.username, args.studentClass, args.topic, getString(R.string.question), getString(R.string.correctAnswer), getString(R.string.submittedAnswer))
         sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
         startActivity(Intent.createChooser(sharingIntent, getString(R.string.shareVia)))
     }

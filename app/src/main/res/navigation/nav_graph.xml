@@ -66,6 +66,9 @@
         <argument
             android:name="username"
             app:argType="string" />
+        <argument
+            android:name="studentClass"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/questionsFragment"
@@ -92,6 +95,12 @@
         <argument
             android:name="username"
             app:argType="string" />
+        <argument
+            android:name="studentClass"
+            app:argType="string" />
+        <argument
+            android:name="topic"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/resultsFragment"
@@ -110,6 +119,12 @@
             app:argType="com.example.filopaideusismvvm.data.ListQuestionData" />
         <argument
             android:name="username"
+            app:argType="string" />
+        <argument
+            android:name="studentClass"
+            app:argType="string" />
+        <argument
+            android:name="topic"
             app:argType="string" />
     </fragment>
 </navigation>

@@ -31,7 +31,7 @@ class SectionsFragment : BaseFragment(R.layout.fragment_sections) {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = FragmentSectionsBinding.bind(view)
-        val sectionsAdapter = SectionsAdapter(args.username)
+        val sectionsAdapter = SectionsAdapter(args.username, args.studentClass)
 
         binding.recyclerViewSections.adapter = sectionsAdapter
         binding.sectionsBackButton.setSafeOnClickListener {

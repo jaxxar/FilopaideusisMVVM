@@ -26,7 +26,8 @@ class StudentClassAdapter(private val username: String) :
                     val action =
                         StudentClassFragmentDirections.actionStudentClassFragmentToSectionsFragment(
                             studentClassData.id,
-                            username
+                            username,
+                            studentClassData.title
                         )
                     findNavController(it).navigate(action)
                 }

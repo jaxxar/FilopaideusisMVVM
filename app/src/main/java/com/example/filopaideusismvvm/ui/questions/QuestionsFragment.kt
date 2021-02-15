@@ -48,7 +48,7 @@ class QuestionsFragment : BaseFragment(R.layout.fragment_questions), QuestionCal
                 Toast.makeText(activity, getText(R.string.selectAnswer), Toast.LENGTH_SHORT).show()
             } else {
                 val listData = ListQuestionData(viewModel.returnList())
-                val action = QuestionsFragmentDirections.actionQuestionsFragmentToResultsFragment(listData, args.username)
+                val action = QuestionsFragmentDirections.actionQuestionsFragmentToResultsFragment(listData, args.username, args.studentClass, args.topic)
                 findNavController().navigate(action)
             }
         }

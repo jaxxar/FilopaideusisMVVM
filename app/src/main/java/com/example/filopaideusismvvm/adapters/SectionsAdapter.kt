@@ -10,22 +10,29 @@ import com.example.filopaideusismvvm.data.SectionsData
 import com.example.filopaideusismvvm.databinding.DesignSectionsBinding
 import com.example.filopaideusismvvm.ui.sections.SectionsFragmentDirections
 
-class SectionsAdapter(private val username: String) :
+class SectionsAdapter(private val username: String, private val studentClass: String) :
     ListAdapter<SectionsData, SectionsAdapter.SectionViewHolder>(
         SectionDiffCallback()
     ) {
 
-    class SectionViewHolder(private val binding: DesignSectionsBinding, private val username: String) :
+    class SectionViewHolder(private val binding: DesignSectionsBinding, private val username: String, private val studentClass: String) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(sectionsData: SectionsData) {
             binding.apply {
                 sectionsButtonText.text = sectionsData.title
+                if (!sectionsData.subTitle.isNullOrBlank()) {
+                    sectionsButtonSubText.text = sectionsData.subTitle
+                }
                 sectionsButton.setOnClickListener {
+                    val topic = if (!sectionsData.subTitle.isNullOrEmpty()) sectionsData.title + " " + sectionsData.subTitle
+                    else sectionsData.title
                     val action =
                         SectionsFragmentDirections.actionSectionsFragmentToQuestionsFragment(
                             sectionsData.listQuestionsId,
-                            username
+                            username,
+                            studentClass,
+                            topic
                         )
                     findNavController(it).navigate(action)
                 }
@@ -36,7 +43,7 @@ class SectionsAdapter(private val username: String) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SectionViewHolder {
         val binding =
             DesignSectionsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return SectionViewHolder(binding, username)
+        return SectionViewHolder(binding, username, studentClass)
     }
 
     override fun onBindViewHolder(holder: SectionViewHolder, position: Int) {

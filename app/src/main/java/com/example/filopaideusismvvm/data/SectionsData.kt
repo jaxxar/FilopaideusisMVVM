@@ -13,6 +13,7 @@ data class SectionsData(
     @PrimaryKey(autoGenerate = false) val id: Int = 0,
     @ColumnInfo(name = "student_class_id") val studentClassId: Int = 0,
     @ColumnInfo(name = "list_questions_id") val listQuestionsId: Int = 0,
-    @ColumnInfo(name = "title") val title: String? = null,
+    @ColumnInfo(name = "title") val title: String,
+    @ColumnInfo(name = "subTitle") val subTitle: String? = "",
     @ColumnInfo(name = "visibility") val visibility: Boolean? = false
 ) : Parcelable

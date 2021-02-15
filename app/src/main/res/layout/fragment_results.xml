@@ -42,9 +42,29 @@
         style="@style/TextColorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultsTitle"
+        tools:text="Όνομα: Mitsos" />
+
+    <TextView
+        android:id="@+id/studentClass"
+        style="@style/TextColorWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:text="Όνομα: Mitsos" />
+
+    <TextView
+        android:id="@+id/topic"
+        style="@style/TextColorWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/studentClass"
         tools:text="Όνομα: Mitsos" />
 
     <TextView
@@ -52,9 +72,9 @@
         style="@style/TextColorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/topic"
         tools:text="Σύνολο ερωτήσεων: 12" />
 
     <TextView
@@ -62,7 +82,7 @@
         style="@style/TextColorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalQuestions"
         tools:text="Σωστές απαντήσεις: 9" />
@@ -95,7 +115,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/score"
+        app:layout_constraintTop_toBottomOf="@+id/correctAnswers"
         tools:listitem="@layout/design_result" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

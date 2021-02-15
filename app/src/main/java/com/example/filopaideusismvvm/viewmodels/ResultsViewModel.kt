@@ -29,8 +29,8 @@ class ResultsViewModel : ViewModel() {
         return results.list?.size!!
     }
 
-    fun shareBody(results: ListQuestionData, username: String, question: String, correctAnswer: String, submittedAnswer: String): String {
-        var shareBody = username + " " + calculateCorrect(results) + "/" + listSize(results) + "\n"
+    fun shareBody(results: ListQuestionData, username: String, studentClass: String, topic: String, question: String, correctAnswer: String, submittedAnswer: String): String {
+        var shareBody = username + " " + calculateCorrect(results) + "/" + listSize(results) + "\n" + studentClass + " " + topic + "\n"
         for (i in 0 until listSize(results)) {
             shareBody += "\n" + question + results.list?.get(i)?.question.let {
                 HtmlCompat.fromHtml(

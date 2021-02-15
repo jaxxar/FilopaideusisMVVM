@@ -11,6 +11,6 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class StudentClassData(
     @PrimaryKey(autoGenerate = false) val id: Int = 0,
-    @ColumnInfo(name = "title") val title: String? = null,
+    @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "visibility") val visibility: Boolean? = false
 ) : Parcelable
