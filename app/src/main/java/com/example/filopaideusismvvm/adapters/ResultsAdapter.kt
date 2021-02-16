@@ -22,17 +22,13 @@ class ResultsAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val answer1 = results.list?.get(position)?.answer1
-        val answer2 = results.list?.get(position)?.answer2
-        val answer3 = results.list?.get(position)?.answer3
-        val answer4 = results.list?.get(position)?.answer4
         val correctAnswer = results.list?.get(position)?.correctAnswer
         val submittedAnswer = results.list?.get(position)?.submittedAnswer
         holder.question.text = results.list?.get(position)?.question.let { HtmlCompat.fromHtml(it!!, HtmlCompat.FROM_HTML_MODE_LEGACY) }
-        resultCheck(answer1, correctAnswer, submittedAnswer, holder.answer1)
-        resultCheck(answer2, correctAnswer, submittedAnswer, holder.answer2)
-        resultCheck(answer3, correctAnswer, submittedAnswer, holder.answer3)
-        resultCheck(answer4, correctAnswer, submittedAnswer, holder.answer4)
+        resultCheck(results.list?.get(position)?.answer1, correctAnswer, submittedAnswer, holder.answer1)
+        resultCheck(results.list?.get(position)?.answer2, correctAnswer, submittedAnswer, holder.answer2)
+        resultCheck(results.list?.get(position)?.answer3, correctAnswer, submittedAnswer, holder.answer3)
+        resultCheck(results.list?.get(position)?.answer4, correctAnswer, submittedAnswer, holder.answer4)
     }
 
     override fun getItemCount(): Int {

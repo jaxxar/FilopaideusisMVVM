@@ -53,7 +53,7 @@ abstract class AppDatabase : RoomDatabase() {
                 sections.insert(SectionsData(8, 6, 1101, "Γλώσσα", null, true))
 
                 question.insert(
-                    QuestionData(1, 1000, "2 + <i><strong>1</strong></i> =", "1", "2", "3", "4", "3", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
+                    QuestionData(1, 1000, "2 + 1 =", "1", "2", "3", "4", "3", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
                 )
                 question.insert(
                     QuestionData(2, 1000, "1 + 3 =", "1", "2", "3", "4", "4", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
@@ -162,6 +162,25 @@ abstract class AppDatabase : RoomDatabase() {
                 question.insert(
                     QuestionData(
                         10,
+                        1101,
+                        "Στην α’ Γυμνασίου διδάσκεται η Οδύσσεια <i><strong>του Ομήρου</strong></i>.",
+                        "κτητική",
+                        "περιεχομένου",
+                        "δημιουργού",
+                        "σκοπού",
+                        "δημιουργού",
+                        null,
+                        checked1 = false,
+                        checked2 = false,
+                        checked3 = false,
+                        checked4 = false,
+                        null,
+                        null
+                    )
+                )
+                question.insert(
+                    QuestionData(
+                        11,
                         1100,
                         "Η επανάσταση της 3ης Σεπτεμβρίου 1843 υπήρξε:",
                         "γέννημα της παρακμής των ξενικών κομμάτων",
