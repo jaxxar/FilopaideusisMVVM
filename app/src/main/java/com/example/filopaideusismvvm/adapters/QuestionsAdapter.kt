@@ -1,6 +1,7 @@
 package com.example.filopaideusismvvm.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.DiffUtil
@@ -23,6 +24,14 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel, private
                 binding.answer2.text = questionData.answer2?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
                 binding.answer3.text = questionData.answer3?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
                 binding.answer4.text = questionData.answer4?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
+                if (questionData.hint.isNullOrEmpty()) {
+                    binding.helpButton.visibility = View.GONE
+                } else {
+                    binding.helpButton.visibility = View.VISIBLE
+                    binding.helpButton.setOnClickListener {
+                        callback.returnHint(questionData.hint)
+                    }
+                }
                 binding.answer1.isChecked = false
                 binding.answer2.isChecked = false
                 binding.answer3.isChecked = false
@@ -108,4 +117,5 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel, private
 
 interface QuestionCallback {
     fun onQuestionClicked()
+    fun returnHint(hint: String)
 }

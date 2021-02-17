@@ -53,7 +53,7 @@ abstract class AppDatabase : RoomDatabase() {
                 sections.insert(SectionsData(8, 6, 1101, "Γλώσσα", null, true))
 
                 question.insert(
-                    QuestionData(1, 1000, "2 + 1 =", "1", "2", "3", "4", "3", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
+                    QuestionData(1, 1000, "2 + 1 =", "1", "2", "3", "4", "3", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, "Μάλλον είναι 2 ή 3", null)
                 )
                 question.insert(
                     QuestionData(2, 1000, "1 + 3 =", "1", "2", "3", "4", "4", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
@@ -62,7 +62,7 @@ abstract class AppDatabase : RoomDatabase() {
                     QuestionData(3, 1000, "5 - 2 =", "1", "2", "3", "4", "3", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
                 )
                 question.insert(
-                    QuestionData(4, 1000, "9 - 7 =", "1", "2", "3", "4", "2", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
+                    QuestionData(4, 1000, "9 - 7 =", "1", "2", "3", "4", "2", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, "Μάλλον είναι 2", null)
                 )
                 question.insert(
                     QuestionData(
@@ -98,7 +98,7 @@ abstract class AppDatabase : RoomDatabase() {
                         checked2 = false,
                         checked3 = false,
                         checked4 = false,
-                        null,
+                        "περιεχομένου",
                         null
                     )
                 )

@@ -85,6 +85,10 @@ class QuestionsFragment : BaseFragment(R.layout.fragment_questions), QuestionCal
         binding.questionsCounter.text = getString(R.string.totalAnswered, viewModel.returnListSize().toString(), viewModel.totalQuestions.value.toString())
     }
 
+    override fun returnHint(hint: String) {
+        Toast.makeText(activity, hint, Toast.LENGTH_SHORT).show()
+    }
+
     private fun back() {
         val action = QuestionsFragmentDirections.actionQuestionsFragmentToLoginFragment()
         findNavController().navigate(action)
