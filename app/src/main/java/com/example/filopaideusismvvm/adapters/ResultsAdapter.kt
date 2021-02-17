@@ -50,6 +50,7 @@ class ResultsAdapter(
         submittedAnswer: String?,
         view: TextView
     ) {
+        view.setTextColor(Color.BLACK)
         view.text = answer.let { HtmlCompat.fromHtml(it!!, HtmlCompat.FROM_HTML_MODE_LEGACY) }
         if (answer == submittedAnswer) {
             if (submittedAnswer == correctAnswer) {

@@ -23,17 +23,21 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel, private
                 binding.answer2.text = questionData.answer2?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
                 binding.answer3.text = questionData.answer3?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
                 binding.answer4.text = questionData.answer4?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
-                when {
-                    questionViewModel.checkChecked(questionData) == 1 -> {
+                binding.answer1.isChecked = false
+                binding.answer2.isChecked = false
+                binding.answer3.isChecked = false
+                binding.answer4.isChecked = false
+                when (questionViewModel.checkChecked(questionData)) {
+                    1 -> {
                         binding.answer1.isChecked = true
                     }
-                    questionViewModel.checkChecked(questionData) == 2 -> {
+                    2 -> {
                         binding.answer2.isChecked = true
                     }
-                    questionViewModel.checkChecked(questionData) == 3 -> {
+                    3 -> {
                         binding.answer3.isChecked = true
                     }
-                    questionViewModel.checkChecked(questionData) == 4 -> {
+                    4 -> {
                         binding.answer4.isChecked = true
                     }
                 }
@@ -88,7 +92,6 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel, private
         holder.bind(currentItem, questionViewModel, callback)
     }
 
-
     private class QuestionDiffCallback : DiffUtil.ItemCallback<QuestionData>() {
 
         override fun areItemsTheSame(
@@ -104,6 +107,5 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel, private
 }
 
 interface QuestionCallback {
-
     fun onQuestionClicked()
 }

@@ -7,12 +7,14 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.RecyclerView
 import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.adapters.QuestionCallback
 import com.example.filopaideusismvvm.adapters.QuestionsAdapter
 import com.example.filopaideusismvvm.data.ListQuestionData
 import com.example.filopaideusismvvm.databinding.FragmentQuestionsBinding
 import com.example.filopaideusismvvm.ui.BaseFragment
+import com.example.filopaideusismvvm.utilities.CustomLinearManager
 import com.example.filopaideusismvvm.viewmodels.QuestionViewModel
 import com.example.filopaideusismvvm.viewmodels.QuestionViewModelAssistedFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,14 +40,18 @@ class QuestionsFragment : BaseFragment(R.layout.fragment_questions), QuestionCal
         binding = FragmentQuestionsBinding.bind(view)
         val questionAdapter = QuestionsAdapter(viewModel, this)
 
+        val layoutManager = CustomLinearManager(requireActivity(), RecyclerView.HORIZONTAL)
+        binding.recyclerViewQuestions.layoutManager = layoutManager
         binding.recyclerViewQuestions.adapter = questionAdapter
         binding.questionsBackButton.setOnClickListener {
             back()
         }
         binding.nextButton.setSafeOnClickListener {
             if (viewModel.returnListSize() != totalQuestions) {
-                binding.recyclerViewQuestions.smoothScrollToPosition(viewModel.findUnchecked())
+                layoutManager.setScrollEnabled(true)
+                binding.recyclerViewQuestions.scrollToPosition(viewModel.findUnchecked())
                 Toast.makeText(activity, getText(R.string.selectAnswer), Toast.LENGTH_SHORT).show()
+                layoutManager.setScrollEnabled(false)
             } else {
                 val listData = ListQuestionData(viewModel.returnList())
                 val action = QuestionsFragmentDirections.actionQuestionsFragmentToResultsFragment(listData, args.username, args.studentClass, args.topic)
