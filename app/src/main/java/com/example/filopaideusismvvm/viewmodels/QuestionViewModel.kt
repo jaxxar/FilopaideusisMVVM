@@ -19,6 +19,7 @@ class QuestionViewModel @AssistedInject constructor(
     val question = questionDao.getQuestion(id).asLiveData()
     private var questionList = mutableListOf<QuestionData>()
     private var index: Int = 0
+    private val timestamp = System.currentTimeMillis() / 1000
 
     fun checkChecked(questionData: QuestionData): Int {
         return when {
@@ -28,6 +29,10 @@ class QuestionViewModel @AssistedInject constructor(
             questionData.checked4 == true -> 4
             else -> -1
         }
+    }
+
+    fun returnTime(): Long {
+        return timestamp
     }
 
     fun addToList(questionData: QuestionData) {

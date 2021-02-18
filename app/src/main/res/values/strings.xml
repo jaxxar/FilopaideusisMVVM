@@ -20,6 +20,7 @@
     <string name="submittedAnswer">Απάντηση: &#160;</string>
     <string name="totalQuestions">Σύνολο ερωτήσεων: %1$s</string>
     <string name="totalCorrectAnswers">Σωστές απαντήσεις: %1$s</string>
+    <string name="totalTime">Χρόνος: %1$s δευτερόλεπτα</string>
 
     <!--contentDescription-->
     <string name="backButtonContentDescription" translatable="false">Back Button</string>

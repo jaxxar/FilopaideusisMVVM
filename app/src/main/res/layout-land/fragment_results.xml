@@ -42,7 +42,7 @@
         style="@style/TextColorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resultsTitle"
         tools:text="Όνομα: Mitsos" />
@@ -52,7 +52,7 @@
         style="@style/TextColorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name"
         tools:text="ΣΤ Δημοτικού" />
@@ -62,7 +62,7 @@
         style="@style/TextColorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="4dp"
         app:layout_constraintStart_toEndOf="@+id/studentClass"
         app:layout_constraintTop_toBottomOf="@+id/name"
         tools:text="Ιστορία" />
@@ -72,7 +72,7 @@
         style="@style/TextColorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="4dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topic"
         tools:text="Σύνολο ερωτήσεων: 12" />
@@ -82,10 +82,21 @@
         style="@style/TextColorWhite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_margin="4dp"
         app:layout_constraintStart_toEndOf="@+id/totalQuestions"
         app:layout_constraintTop_toBottomOf="@+id/topic"
         tools:text="Σωστές απαντήσεις: 9" />
+
+
+    <TextView
+        android:id="@+id/totalTime"
+        style="@style/TextColorWhite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/correctAnswers"
+        tools:text="Χρόνος: 56 δευτερόλεπτα" />
 
     <ProgressBar
         android:id="@+id/score"

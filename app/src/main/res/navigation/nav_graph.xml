@@ -126,5 +126,8 @@
         <argument
             android:name="topic"
             app:argType="string" />
+        <argument
+            android:name="timestamp"
+            app:argType="long" />
     </fragment>
 </navigation>

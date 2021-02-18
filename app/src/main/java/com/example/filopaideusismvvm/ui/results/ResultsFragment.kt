@@ -29,20 +29,22 @@ class ResultsFragment : BaseFragment(R.layout.fragment_results) {
         binding = FragmentResultsBinding.bind(view)
         results = args.listData
         val resultsAdapter = ResultsAdapter(results)
-        binding.recyclerViewResults.adapter = resultsAdapter
-        binding.name.text = getString(R.string.nameFilled, args.username)
-        binding.studentClass.text = args.studentClass
-        binding.topic.text = args.topic
-        binding.totalQuestions.text = getString(R.string.totalQuestions, viewModel.listSize(results).toString())
-        binding.correctAnswers.text = getString(R.string.totalCorrectAnswers, viewModel.calculateCorrect(results).toString())
-        binding.score.progress = viewModel.getPercent(results)
-        binding.scoreText.text = "${viewModel.getPercent(results)}%"
-
-        binding.resultsBackButton.setSafeOnClickListener {
-            back()
-        }
-        binding.resultsShare.setSafeOnClickListener {
-            share()
+        binding.apply {
+            recyclerViewResults.adapter = resultsAdapter
+            name.text = getString(R.string.nameFilled, args.username)
+            studentClass.text = args.studentClass
+            topic.text = args.topic
+            totalQuestions.text = getString(R.string.totalQuestions, viewModel.listSize(results).toString())
+            correctAnswers.text = getString(R.string.totalCorrectAnswers, viewModel.calculateCorrect(results).toString())
+            totalTime.text = getString(R.string.totalTime, viewModel.calculateTime(args.timestamp).toString())
+            score.progress = viewModel.getPercent(results)
+            scoreText.text = "${viewModel.getPercent(results)}%"
+            resultsBackButton.setSafeOnClickListener {
+                back()
+            }
+            resultsShare.setSafeOnClickListener {
+                share()
+            }
         }
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
@@ -60,7 +62,16 @@ class ResultsFragment : BaseFragment(R.layout.fragment_results) {
     private fun share() {
         val sharingIntent = Intent(Intent.ACTION_SEND)
         sharingIntent.type = "text/plain"
-        val shareBody = viewModel.shareBody(results, args.username, args.studentClass, args.topic, getString(R.string.question), getString(R.string.correctAnswer), getString(R.string.submittedAnswer))
+        val shareBody = viewModel.shareBody(
+            results,
+            args.username,
+            args.studentClass,
+            args.topic,
+            getString(R.string.question),
+            getString(R.string.correctAnswer),
+            getString(R.string.submittedAnswer),
+            getString(R.string.totalTime, viewModel.calculateTime(args.timestamp).toString())
+        )
         sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
         startActivity(Intent.createChooser(sharingIntent, getString(R.string.shareVia)))
     }

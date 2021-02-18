@@ -54,7 +54,7 @@ class QuestionsFragment : BaseFragment(R.layout.fragment_questions), QuestionCal
                 layoutManager.setScrollEnabled(false)
             } else {
                 val listData = ListQuestionData(viewModel.returnList())
-                val action = QuestionsFragmentDirections.actionQuestionsFragmentToResultsFragment(listData, args.username, args.studentClass, args.topic)
+                val action = QuestionsFragmentDirections.actionQuestionsFragmentToResultsFragment(listData, args.username, args.studentClass, args.topic, viewModel.returnTime())
                 findNavController().navigate(action)
             }
         }

@@ -6,6 +6,8 @@ import com.example.filopaideusismvvm.data.ListQuestionData
 
 class ResultsViewModel : ViewModel() {
 
+    private val timestamp = System.currentTimeMillis() / 1000
+
     fun calculateCorrect(results: ListQuestionData): Int {
         return if (results.list?.size == 0) 0
         else {
@@ -29,8 +31,8 @@ class ResultsViewModel : ViewModel() {
         return results.list?.size!!
     }
 
-    fun shareBody(results: ListQuestionData, username: String, studentClass: String, topic: String, question: String, correctAnswer: String, submittedAnswer: String): String {
-        var shareBody = username + " " + calculateCorrect(results) + "/" + listSize(results) + "\n" + studentClass + " " + topic + "\n"
+    fun shareBody(results: ListQuestionData, username: String, studentClass: String, topic: String, question: String, correctAnswer: String, submittedAnswer: String, time: String): String {
+        var shareBody = username + " " + calculateCorrect(results) + "/" + listSize(results) + "\n" + studentClass + " " + topic + "\n" + time + "\n"
         for (i in 0 until listSize(results)) {
             shareBody += "\n" + question + results.list?.get(i)?.question.let {
                 HtmlCompat.fromHtml(
@@ -45,5 +47,9 @@ class ResultsViewModel : ViewModel() {
             } + "\n" + correctAnswer + results.list?.get(i)?.correctAnswer.let { HtmlCompat.fromHtml(it!!, HtmlCompat.FROM_HTML_MODE_LEGACY) } + "\n"
         }
         return shareBody
+    }
+
+    fun calculateTime(startTime: Long): Long {
+        return timestamp - startTime
     }
 }
