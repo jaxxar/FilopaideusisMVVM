@@ -3,6 +3,7 @@ package com.example.filopaideusismvvm.viewmodels
 import androidx.core.text.HtmlCompat
 import androidx.lifecycle.ViewModel
 import com.example.filopaideusismvvm.data.ListQuestionData
+import java.util.*
 
 class ResultsViewModel : ViewModel() {
 
@@ -49,7 +50,9 @@ class ResultsViewModel : ViewModel() {
         return shareBody
     }
 
-    fun calculateTime(startTime: Long): Long {
-        return timestamp - startTime
+    fun calculateTime(startTime: Long): String {
+        val minutes = ((timestamp - startTime) / 60).toInt()
+        val seconds = ((timestamp - startTime) % 60).toInt()
+        return String.format(Locale.getDefault(), "%02d:%02d", minutes, seconds)
     }
 }

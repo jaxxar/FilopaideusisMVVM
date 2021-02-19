@@ -36,7 +36,7 @@ class ResultsFragment : BaseFragment(R.layout.fragment_results) {
             topic.text = args.topic
             totalQuestions.text = getString(R.string.totalQuestions, viewModel.listSize(results).toString())
             correctAnswers.text = getString(R.string.totalCorrectAnswers, viewModel.calculateCorrect(results).toString())
-            totalTime.text = getString(R.string.totalTime, viewModel.calculateTime(args.timestamp).toString())
+            totalTime.text = getString(R.string.totalTime, viewModel.calculateTime(args.timestamp))
             score.progress = viewModel.getPercent(results)
             scoreText.text = "${viewModel.getPercent(results)}%"
             resultsBackButton.setSafeOnClickListener {
@@ -70,7 +70,7 @@ class ResultsFragment : BaseFragment(R.layout.fragment_results) {
             getString(R.string.question),
             getString(R.string.correctAnswer),
             getString(R.string.submittedAnswer),
-            getString(R.string.totalTime, viewModel.calculateTime(args.timestamp).toString())
+            getString(R.string.totalTime, viewModel.calculateTime(args.timestamp))
         )
         sharingIntent.putExtra(Intent.EXTRA_TEXT, shareBody)
         startActivity(Intent.createChooser(sharingIntent, getString(R.string.shareVia)))
