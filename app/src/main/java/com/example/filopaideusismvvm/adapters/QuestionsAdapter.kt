@@ -19,11 +19,21 @@ class QuestionsAdapter(private val questionViewModel: QuestionViewModel, private
 
         fun bind(questionData: QuestionData, questionViewModel: QuestionViewModel, callback: QuestionCallback) {
             binding.apply {
+                binding.answer3.visibility = View.VISIBLE
+                binding.answer4.visibility = View.VISIBLE
                 binding.question.text = questionData.question?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
                 binding.answer1.text = questionData.answer1?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
                 binding.answer2.text = questionData.answer2?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
-                binding.answer3.text = questionData.answer3?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
-                binding.answer4.text = questionData.answer4?.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
+                if (questionData.answer3.isNullOrEmpty()) {
+                    binding.answer3.visibility = View.GONE
+                } else {
+                    binding.answer3.text = questionData.answer3.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
+                }
+                if (questionData.answer4.isNullOrEmpty()) {
+                    binding.answer4.visibility = View.GONE
+                } else {
+                    binding.answer4.text = questionData.answer4.let { HtmlCompat.fromHtml(it, HtmlCompat.FROM_HTML_MODE_LEGACY) }
+                }
                 if (questionData.hint.isNullOrEmpty()) {
                     binding.helpButton.visibility = View.GONE
                 } else {

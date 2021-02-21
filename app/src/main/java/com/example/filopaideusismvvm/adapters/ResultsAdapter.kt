@@ -2,6 +2,7 @@ package com.example.filopaideusismvvm.adapters
 
 import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
@@ -24,11 +25,21 @@ class ResultsAdapter(
 
         val correctAnswer = results.list?.get(position)?.correctAnswer
         val submittedAnswer = results.list?.get(position)?.submittedAnswer
+        holder.answer3.visibility = View.VISIBLE
+        holder.answer4.visibility = View.VISIBLE
         holder.question.text = results.list?.get(position)?.question.let { HtmlCompat.fromHtml(it!!, HtmlCompat.FROM_HTML_MODE_LEGACY) }
         resultCheck(results.list?.get(position)?.answer1, correctAnswer, submittedAnswer, holder.answer1)
         resultCheck(results.list?.get(position)?.answer2, correctAnswer, submittedAnswer, holder.answer2)
-        resultCheck(results.list?.get(position)?.answer3, correctAnswer, submittedAnswer, holder.answer3)
-        resultCheck(results.list?.get(position)?.answer4, correctAnswer, submittedAnswer, holder.answer4)
+        if (results.list?.get(position)?.answer3.isNullOrEmpty()) {
+            holder.answer3.visibility = View.GONE
+        } else {
+            resultCheck(results.list?.get(position)?.answer3, correctAnswer, submittedAnswer, holder.answer3)
+        }
+        if (results.list?.get(position)?.answer4.isNullOrEmpty()) {
+            holder.answer4.visibility = View.GONE
+        } else {
+            resultCheck(results.list?.get(position)?.answer4, correctAnswer, submittedAnswer, holder.answer4)
+        }
     }
 
     override fun getItemCount(): Int {
