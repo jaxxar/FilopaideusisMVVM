@@ -86,7 +86,8 @@ class QuestionsFragment : BaseFragment(R.layout.fragment_questions), QuestionCal
     }
 
     override fun returnHint(hint: String) {
-        Toast.makeText(activity, hint, Toast.LENGTH_SHORT).show()
+        val action = QuestionsFragmentDirections.actionQuestionsFragmentToDialogFragment(hint)
+        findNavController().navigate(action)
     }
 
     private fun back() {

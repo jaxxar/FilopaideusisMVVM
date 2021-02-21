@@ -101,6 +101,9 @@
         <argument
             android:name="topic"
             app:argType="string" />
+        <action
+            android:id="@+id/action_questionsFragment_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultsFragment"
@@ -130,4 +133,12 @@
             android:name="timestamp"
             app:argType="long" />
     </fragment>
+    <dialog
+        android:id="@+id/dialogFragment"
+        android:name="com.example.filopaideusismvvm.ui.DialogFragment"
+        android:label="DialogFragment">
+        <argument
+            android:name="hint"
+            app:argType="string" />
+    </dialog>
 </navigation>
