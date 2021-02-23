@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.adapters.SectionsAdapter
+import com.example.filopaideusismvvm.adapters.SectionsCallback
 import com.example.filopaideusismvvm.databinding.FragmentSectionsBinding
 import com.example.filopaideusismvvm.ui.BaseFragment
 import com.example.filopaideusismvvm.viewmodels.SectionsViewModel
@@ -16,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class SectionsFragment : BaseFragment(R.layout.fragment_sections) {
+class SectionsFragment : BaseFragment(R.layout.fragment_sections), SectionsCallback {
 
     private val args: SectionsFragmentArgs by navArgs()
 
@@ -31,7 +32,7 @@ class SectionsFragment : BaseFragment(R.layout.fragment_sections) {
         super.onViewCreated(view, savedInstanceState)
 
         val binding = FragmentSectionsBinding.bind(view)
-        val sectionsAdapter = SectionsAdapter(args.username, args.studentClass)
+        val sectionsAdapter = SectionsAdapter(args.username, args.studentClass, this)
 
         binding.recyclerViewSections.adapter = sectionsAdapter
         binding.sectionsBackButton.setSafeOnClickListener {
@@ -55,6 +56,11 @@ class SectionsFragment : BaseFragment(R.layout.fragment_sections) {
 
     private fun back() {
         val action = SectionsFragmentDirections.actionSectionsFragmentToStudentClassFragment(args.username)
+        findNavController().navigate(action)
+    }
+
+    override fun returnInfo(info: String) {
+        val action = SectionsFragmentDirections.actionSectionsFragmentToDialogFragment(info)
         findNavController().navigate(action)
     }
 }

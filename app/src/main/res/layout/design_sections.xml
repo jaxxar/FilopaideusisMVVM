@@ -29,10 +29,11 @@
             <TextView
                 android:id="@+id/sectionsButtonText"
                 style="@style/TextColorWhite.big"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:maxLines="3"
+                app:layout_constraintEnd_toStartOf="@+id/infoButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Title" />
@@ -40,13 +41,26 @@
             <TextView
                 android:id="@+id/sectionsButtonSubText"
                 style="@style/TextColorWhite"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
                 android:maxLines="3"
+                app:layout_constraintEnd_toStartOf="@+id/infoButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/sectionsButtonText"
                 tools:text="Sub-title" />
+
+            <ImageView
+                android:id="@+id/infoButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_baseline_info_24"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.example.filopaideusismvvm.views.MaskedCardView>

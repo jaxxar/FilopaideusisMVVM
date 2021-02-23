@@ -15,5 +15,6 @@ data class SectionsData(
     @ColumnInfo(name = "list_questions_id") val listQuestionsId: Int = 0,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "subTitle") val subTitle: String? = "",
+    @ColumnInfo(name = "info") val info: String? = "",
     @ColumnInfo(name = "visibility") val visibility: Boolean? = false
 ) : Parcelable
