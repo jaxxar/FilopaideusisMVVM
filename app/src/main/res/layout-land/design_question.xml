@@ -71,7 +71,7 @@
 
                 <RadioButton
                     android:id="@+id/answer_1"
-                    style="@style/TextColorWhite"
+                    style="@style/NormalText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:maxLines="3"
@@ -79,7 +79,7 @@
 
                 <RadioButton
                     android:id="@+id/answer_2"
-                    style="@style/TextColorWhite"
+                    style="@style/NormalText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:maxLines="3"
@@ -87,7 +87,7 @@
 
                 <RadioButton
                     android:id="@+id/answer_3"
-                    style="@style/TextColorWhite"
+                    style="@style/NormalText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:maxLines="3"
@@ -95,7 +95,7 @@
 
                 <RadioButton
                     android:id="@+id/answer_4"
-                    style="@style/TextColorWhite"
+                    style="@style/NormalText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:maxLines="3"

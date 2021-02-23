@@ -39,7 +39,7 @@
 
     <TextView
         android:id="@+id/name"
-        style="@style/TextColorWhite"
+        style="@style/NormalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
@@ -49,7 +49,7 @@
 
     <TextView
         android:id="@+id/studentClass"
-        style="@style/TextColorWhite"
+        style="@style/NormalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -59,7 +59,7 @@
 
     <TextView
         android:id="@+id/topic"
-        style="@style/TextColorWhite"
+        style="@style/NormalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -69,7 +69,7 @@
 
     <TextView
         android:id="@+id/totalQuestions"
-        style="@style/TextColorWhite"
+        style="@style/NormalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -79,7 +79,7 @@
 
     <TextView
         android:id="@+id/correctAnswers"
-        style="@style/TextColorWhite"
+        style="@style/NormalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -89,7 +89,7 @@
 
     <TextView
         android:id="@+id/totalTime"
-        style="@style/TextColorWhite"
+        style="@style/NormalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="4dp"
@@ -108,7 +108,7 @@
 
     <TextView
         android:id="@+id/scoreText"
-        style="@style/TextColorWhite"
+        style="@style/NormalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/score"

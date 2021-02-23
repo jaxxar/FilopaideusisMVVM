@@ -34,6 +34,13 @@
         <item name="android:textColorHint">?attr/TextColor</item>
     </style>
 
+    <style name="NormalText" parent="TextColorWhite">
+        <item name="android:textSize">@dimen/text_size_text_normal</item>
+        <item name="android:autoSizeTextType">uniform</item>
+        <item name="android:autoSizeMinTextSize">@dimen/text_size_text_normal_min</item>
+        <item name="android:autoSizeMaxTextSize">@dimen/text_size_text_normal</item>
+    </style>
+
     <style name="TextColorWhite.big" parent="TextColorWhite">
         <item name="android:textSize">@dimen/text_size_header</item>
     </style>
@@ -80,6 +87,10 @@
         <item name="colorControlNormal">?attr/TextColor</item>
         <item name="colorControlActivated">?attr/TextColor</item>
         <item name="colorControlHighlight">?attr/TextColor</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/boxCornerRadius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/boxCornerRadius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/boxCornerRadius</item>
+        <item name="boxCornerRadiusTopStart">@dimen/boxCornerRadius</item>
         <item name="boxStrokeWidth">2dp</item>
         <item name="android:layout_marginHorizontal">50dp</item>
         <item name="android:textColor">?attr/TextColor</item>

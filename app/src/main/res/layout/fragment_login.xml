@@ -40,12 +40,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:hint="@string/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginLogo"
-            tools:layout_editor_absoluteX="50dp">
+            app:startIconDrawable="@drawable/ic_baseline_account_circle_24">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nameInputEditText"
-                style="@style/TextColorWhite"
+                style="@style/NormalText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
@@ -72,5 +74,4 @@
         </androidx.cardview.widget.CardView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.core.widget.NestedScrollView>

@@ -4,7 +4,11 @@
     <dimen name="text_size_header">20sp</dimen>
     <dimen name="text_size_main_titles">20sp</dimen>
     <dimen name="text_size_section_titles">18sp</dimen>
+    <dimen name="text_size_text_normal">14sp</dimen>
+    <dimen name="text_size_text_normal_min">12sp</dimen>
 
+    <!-- TextInputLayout   -->
+    <dimen name="boxCornerRadius">25dp</dimen>
 
     <!-- Buttons   -->
     <dimen name="basic_card_corner_radius">20dp</dimen>
