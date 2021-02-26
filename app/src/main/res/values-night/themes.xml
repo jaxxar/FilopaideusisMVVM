@@ -25,6 +25,10 @@
         <item name="android:background">?attr/BackgroundColor</item>
     </style>
 
+    <style name="VectorColorBackground" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:background">?attr/VectorColor</item>
+    </style>
+
     <style name="BackgroundColorElement" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:background">?attr/BackgroundColorElement</item>
     </style>
