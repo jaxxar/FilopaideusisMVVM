@@ -17,7 +17,7 @@ android {
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
-        versionName "0.6.7b"
+        versionName "0.6.7c"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -84,13 +84,9 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
 
-    // DataStore
-    implementation "androidx.datastore:datastore-preferences:$dataStoreVersion"
-
     //FireBase
     implementation "com.google.firebase:firebase-database:$firebaseDatabaseVersion"
     implementation "com.firebaseui:firebase-ui-database:$firebaseUiDatabaseVersion"
-
 }
 kapt {
     correctErrorTypes true
