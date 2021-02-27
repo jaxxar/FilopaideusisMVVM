@@ -11,6 +11,7 @@ import com.example.filopaideusismvvm.adapters.SectionsAdapter
 import com.example.filopaideusismvvm.adapters.SectionsCallback
 import com.example.filopaideusismvvm.databinding.FragmentSectionsBinding
 import com.example.filopaideusismvvm.ui.BaseFragment
+import com.example.filopaideusismvvm.utilities.onQueryTextChanged
 import com.example.filopaideusismvvm.viewmodels.SectionsViewModel
 import com.example.filopaideusismvvm.viewmodels.SectionsViewModelAssistedFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,6 +34,7 @@ class SectionsFragment : BaseFragment(R.layout.fragment_sections), SectionsCallb
 
         val binding = FragmentSectionsBinding.bind(view)
         val sectionsAdapter = SectionsAdapter(args.username, args.studentClass, this)
+        val searchView = binding.searchHomepage
 
         binding.recyclerViewSections.adapter = sectionsAdapter
         binding.sectionsBackButton.setSafeOnClickListener {
@@ -44,6 +46,9 @@ class SectionsFragment : BaseFragment(R.layout.fragment_sections), SectionsCallb
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+        searchView.onQueryTextChanged {
+            viewModel.searchQuery.value = it
+        }
 
         subscribeUi(sectionsAdapter)
     }

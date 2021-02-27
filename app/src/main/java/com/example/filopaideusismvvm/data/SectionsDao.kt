@@ -11,8 +11,8 @@ interface SectionsDao {
     fun getAllSections(): Flow<List<SectionsData>>
 
     @Transaction
-    @Query("SELECT * FROM $TABLE_SECTIONS WHERE student_class_id = :studentClassId ")
-    fun getSections(studentClassId: Int): Flow<List<SectionsData>>
+    @Query("SELECT * FROM $TABLE_SECTIONS WHERE student_class_id = :studentClassId AND title LIKE '%' || :searchQuery || '%'")
+    fun getSections(studentClassId: Int, searchQuery: String): Flow<List<SectionsData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(sectionsData: SectionsData)

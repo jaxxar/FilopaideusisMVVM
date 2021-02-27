@@ -39,8 +39,14 @@ abstract class AppDatabase : RoomDatabase() {
                 studentClass.insert(StudentClassData(4, "Δ Δημοτικού", true))
                 studentClass.insert(StudentClassData(5, "Ε Δημοτικού", true))
                 studentClass.insert(StudentClassData(6, "ΣΤ Δημοτικού", true))
+                studentClass.insert(StudentClassData(7, "Α Γυμνασίου", true))
+                studentClass.insert(StudentClassData(8, "Β Γυμνασίου", true))
+                studentClass.insert(StudentClassData(9, "Γ Γυμνασίου", true))
+                studentClass.insert(StudentClassData(10, "Α Λυκείου", true))
+                studentClass.insert(StudentClassData(11, "Β Λυκείου", true))
+                studentClass.insert(StudentClassData(12, "Γ Λυκείου", true))
 
-                sections.insert(SectionsData(1, 1, 1000, "Μαθηματικά", "Ενότητα 1", "Πληροφορίες:\n-Πρόσθεση\n-Αφαίρεση\n-Συνολικές Ερωτήσεις: 4\n-Διάρκεια: 4 λεπτά", true))
+                sections.insert(SectionsData(1, 1, 1000, "Μαθηματικά", "Ενότητα 1", "Πληροφορίες:\n-Πρόσθεση\n-Αφαίρεση\n-Συνολικές Ερωτήσεις: 4\n-Διάρκεια: 4 λεπτά\n-Βαθμός Δυσκολίας: Εύκολο", true))
                 sections.insert(SectionsData(2, 1, 1001, "Γλώσσα", null, null, true))
                 sections.insert(
                     SectionsData(3, 1, 1002, "ΑΝΘΟΛΟΓΙΟ ΛΟΓΟΤΕΧΝΙΚΩΝ ΚΕΙΜΕΝΩΝ", null, null, true)
