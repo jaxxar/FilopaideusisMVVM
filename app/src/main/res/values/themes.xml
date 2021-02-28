@@ -38,6 +38,12 @@
         <item name="android:textColorHint">?attr/TextColor</item>
     </style>
 
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="android:queryBackground">?attr/BackgroundColorElement</item>
+        <item name="searchIcon">@drawable/ic_baseline_search_24</item>
+        <item name="android:maxWidth">@dimen/search_view_max_width</item>
+    </style>
+
     <style name="NormalText" parent="TextColorWhite">
         <item name="android:textSize">@dimen/text_size_text_normal</item>
         <item name="android:autoSizeTextType">uniform</item>
@@ -62,8 +68,8 @@
         <item name="cardBackgroundColor">?attr/ButtonColor</item>
         <item name="android:foreground">?android:attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
-        <item name="android:layout_width">200dp</item>
-        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_width">@dimen/button_layout_width</item>
+        <item name="android:layout_height">@dimen/button_layout_height</item>
         <item name="cardCornerRadius">@dimen/basic_card_corner_radius</item>
     </style>
 
@@ -91,11 +97,11 @@
         <item name="colorControlNormal">?attr/TextColor</item>
         <item name="colorControlActivated">?attr/TextColor</item>
         <item name="colorControlHighlight">?attr/TextColor</item>
-        <item name="boxCornerRadiusBottomStart">@dimen/boxCornerRadius</item>
-        <item name="boxCornerRadiusBottomEnd">@dimen/boxCornerRadius</item>
-        <item name="boxCornerRadiusTopEnd">@dimen/boxCornerRadius</item>
-        <item name="boxCornerRadiusTopStart">@dimen/boxCornerRadius</item>
-        <item name="boxStrokeWidth">2dp</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/box_corner_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/box_corner_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/box_corner_radius</item>
+        <item name="boxCornerRadiusTopStart">@dimen/box_corner_radius</item>
+        <item name="boxStrokeWidth">@dimen/box_stroke_width</item>
         <item name="android:layout_marginHorizontal">50dp</item>
         <item name="android:textColor">?attr/TextColor</item>
         <item name="android:textColorHint">?attr/TextColor</item>

@@ -28,11 +28,11 @@
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchHomepage"
+        style="@style/SearchViewStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:searchIcon="@drawable/ic_baseline_search_24" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
