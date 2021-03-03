@@ -4,6 +4,9 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.filopaideusismvvm.di.ApplicationScope
+import com.example.filopaideusismvvm.utilities.FOUR_ANSWER_RADIO
+import com.example.filopaideusismvvm.utilities.THREE_ANSWER_RADIO
+import com.example.filopaideusismvvm.utilities.TWO_ANSWER_RADIO
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -59,16 +62,33 @@ abstract class AppDatabase : RoomDatabase() {
                 sections.insert(SectionsData(8, 6, 1101, "Γλώσσα", null, null, true))
 
                 question.insert(
-                    QuestionData(1, 1000, "2 + 1 =", "1", "2", "3", "4", "3", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, "Μάλλον είναι 2 ή 3", null)
+                    QuestionData(
+                        1,
+                        1000,
+                        "2 + 1 =",
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "3",
+                        null,
+                        checked1 = false,
+                        checked2 = false,
+                        checked3 = false,
+                        checked4 = false,
+                        "Μάλλον είναι 2 ή 3",
+                        null,
+                        FOUR_ANSWER_RADIO
+                    )
                 )
                 question.insert(
-                    QuestionData(2, 1000, "1 + 3 =", "1", "2", "3", "4", "4", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
+                    QuestionData(2, 1000, "1 + 3 =", "1", "2", "3", "4", "4", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null, FOUR_ANSWER_RADIO)
                 )
                 question.insert(
-                    QuestionData(3, 1000, "5 - 2 =", "1", "2", "3", "4", "3", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null)
+                    QuestionData(3, 1000, "5 - 2 =", "1", "2", "3", "4", "3", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, null, null, FOUR_ANSWER_RADIO)
                 )
                 question.insert(
-                    QuestionData(4, 1000, "9 - 7 =", "1", "2", "3", "4", "2", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, "Μάλλον είναι 2", null)
+                    QuestionData(4, 1000, "9 - 7 =", "1", "2", "3", "4", "2", null, checked1 = false, checked2 = false, checked3 = false, checked4 = false, "Μάλλον είναι 2", null, FOUR_ANSWER_RADIO)
                 )
                 question.insert(
                     QuestionData(
@@ -86,7 +106,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         null,
-                        null
+                        null,
+                        THREE_ANSWER_RADIO
                     )
                 )
                 question.insert(
@@ -105,7 +126,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         "περιεχομένου",
-                        null
+                        null,
+                        TWO_ANSWER_RADIO
                     )
                 )
                 question.insert(
@@ -124,7 +146,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         null,
-                        null
+                        null,
+                        FOUR_ANSWER_RADIO
                     )
                 )
                 question.insert(
@@ -143,7 +166,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         null,
-                        null
+                        null,
+                        FOUR_ANSWER_RADIO
                     )
                 )
                 question.insert(
@@ -162,7 +186,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         null,
-                        null
+                        null,
+                        FOUR_ANSWER_RADIO
                     )
                 )
                 question.insert(
@@ -181,7 +206,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         null,
-                        null
+                        null,
+                        FOUR_ANSWER_RADIO
                     )
                 )
                 question.insert(
@@ -200,7 +226,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         null,
-                        null
+                        null,
+                        THREE_ANSWER_RADIO
                     )
                 )
                 question.insert(
@@ -219,7 +246,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         null,
-                        null
+                        null,
+                        FOUR_ANSWER_RADIO
                     )
                 )
                 question.insert(
@@ -238,7 +266,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         null,
-                        null
+                        null,
+                        TWO_ANSWER_RADIO
                     )
                 )
                 question.insert(
@@ -257,7 +286,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         null,
-                        null
+                        null,
+                        FOUR_ANSWER_RADIO
                     )
                 )
                 question.insert(
@@ -276,7 +306,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         null,
-                        null
+                        null,
+                        FOUR_ANSWER_RADIO
                     )
                 )
                 question.insert(
@@ -295,7 +326,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         null,
-                        null
+                        null,
+                        THREE_ANSWER_RADIO
                     )
                 )
                 question.insert(
@@ -314,7 +346,8 @@ abstract class AppDatabase : RoomDatabase() {
                         checked3 = false,
                         checked4 = false,
                         "Τον Οκτώβριο και τον Νοέμβριο έγιναν οι εκλογές του 1843 και οι εκλεγμένοι πληρεξούσιοι συγκρότησαν την συνταγματική Εθνική Συνέλευση που είχαν απαιτήσει όσοι έλαβαν μέρος στην επανάσταση της 3ης Σεπτεμβρίου και συνέταξαν Σύνταγμα, το οποίο υπέγραψε ο Όθωνας. Από τότε η πλατεία των Ανακτόρων μετονομάστηκε σε Πλατεία Συντάγματος.",
-                        null
+                        null,
+                        FOUR_ANSWER_RADIO
                     )
                 )
             }

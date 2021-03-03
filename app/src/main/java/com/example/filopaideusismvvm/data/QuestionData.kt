@@ -24,5 +24,6 @@ data class QuestionData(
     @ColumnInfo(name = "checked_3") var checked3: Boolean? = false,
     @ColumnInfo(name = "checked_4") var checked4: Boolean? = false,
     @ColumnInfo(name = "hint") val hint: String? = null,
-    @ColumnInfo(name = "chapter") val chapter: String? = null
+    @ColumnInfo(name = "chapter") val chapter: String? = null,
+    @ColumnInfo(name = "question_type") val questionType: Int = 0
 ) : Parcelable
