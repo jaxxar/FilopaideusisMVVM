@@ -1,9 +1,6 @@
 package com.example.filopaideusismvvm.data
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
+import androidx.room.*
 import com.example.filopaideusismvvm.utilities.TABLE_STUDENT_CLASS
 import kotlinx.coroutines.flow.Flow
 
@@ -11,7 +8,11 @@ import kotlinx.coroutines.flow.Flow
 interface StudentClassDao {
 
     @Query("SELECT * FROM $TABLE_STUDENT_CLASS")
-    fun getStudentClass(): Flow<List<StudentClassData>>
+    fun getAllStudentClass(): Flow<List<StudentClassData>>
+
+    @Transaction
+    @Query("SELECT * FROM $TABLE_STUDENT_CLASS WHERE title LIKE '%' || :searchQuery || '%'")
+    fun getStudentClass(searchQuery: String): Flow<List<StudentClassData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(studentClassData: StudentClassData)

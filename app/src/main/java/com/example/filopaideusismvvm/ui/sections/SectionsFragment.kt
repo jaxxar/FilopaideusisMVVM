@@ -34,7 +34,7 @@ class SectionsFragment : BaseFragment(R.layout.fragment_sections), SectionsCallb
 
         val binding = FragmentSectionsBinding.bind(view)
         val sectionsAdapter = SectionsAdapter(args.username, args.studentClass, this)
-        val searchView = binding.searchHomepage
+        val searchView = binding.searchSections
 
         binding.recyclerViewSections.adapter = sectionsAdapter
         binding.sectionsBackButton.setSafeOnClickListener {

@@ -10,6 +10,7 @@ import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.adapters.StudentClassAdapter
 import com.example.filopaideusismvvm.databinding.FragmentStudentClassBinding
 import com.example.filopaideusismvvm.ui.BaseFragment
+import com.example.filopaideusismvvm.utilities.onQueryTextChanged
 import com.example.filopaideusismvvm.viewmodels.StudentClassViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,6 +25,7 @@ class StudentClassFragment : BaseFragment(R.layout.fragment_student_class) {
 
         val binding = FragmentStudentClassBinding.bind(view)
         val studentClassAdapter = StudentClassAdapter(args.username)
+        val searchView = binding.searchStudentClass
 
         binding.recyclerViewStudentClass.adapter = studentClassAdapter
         binding.studentClassBackButton.setSafeOnClickListener {
@@ -36,6 +38,9 @@ class StudentClassFragment : BaseFragment(R.layout.fragment_student_class) {
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+        searchView.onQueryTextChanged {
+            viewModel.searchQuery.value = it
+        }
 
     }
 
