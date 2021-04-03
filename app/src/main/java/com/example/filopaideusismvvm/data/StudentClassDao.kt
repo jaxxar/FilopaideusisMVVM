@@ -15,5 +15,11 @@ interface StudentClassDao {
     fun getStudentClass(searchQuery: String): Flow<List<StudentClassData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertList(studentClassData: List<StudentClassData>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(studentClassData: StudentClassData)
+
+    @Query("DELETE FROM $TABLE_STUDENT_CLASS")
+    suspend fun deleteAllStudentClass()
 }

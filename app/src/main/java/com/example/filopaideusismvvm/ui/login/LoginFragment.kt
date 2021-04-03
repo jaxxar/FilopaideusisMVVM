@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.filopaideusismvvm.R
 import com.example.filopaideusismvvm.databinding.FragmentLoginBinding
 import com.example.filopaideusismvvm.ui.BaseFragment
+import com.example.filopaideusismvvm.utilities.FETCH_FROM_FIREBASE
 import com.example.filopaideusismvvm.viewmodels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -45,6 +46,18 @@ class LoginFragment : BaseFragment(R.layout.fragment_login) {
                 binding.nameInputEditTextLabel.error = getString(R.string.selectName)
             }
         })
+
+        if (FETCH_FROM_FIREBASE) {
+            viewModel.updateStudentClass.observe(viewLifecycleOwner, { studentClass ->
+
+            })
+            viewModel.updateSections.observe(viewLifecycleOwner, { sections ->
+
+            })
+            viewModel.updateQuestions.observe(viewLifecycleOwner, { questions ->
+
+            })
+        }
     }
 
     private fun openActivity() {

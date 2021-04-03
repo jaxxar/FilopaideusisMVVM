@@ -15,6 +15,11 @@ interface SectionsDao {
     fun getSections(studentClassId: Int, searchQuery: String): Flow<List<SectionsData>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertList(sectionsData: List<SectionsData>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(sectionsData: SectionsData)
 
+    @Query("DELETE FROM $TABLE_SECTIONS")
+    suspend fun deleteAllSections()
 }

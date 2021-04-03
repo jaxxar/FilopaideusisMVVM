@@ -4,4 +4,7 @@
     <!-- Duration (in milliseconds) for slide transition animation -->
     <integer name="slide">200</integer>
 
+    <!-- Fetch data from Firebase -->
+    <bool name="fetch_from_firebase">false</bool>
+
 </resources>
