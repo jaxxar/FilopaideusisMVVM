@@ -51,18 +51,19 @@ class Repository @Inject constructor(
             studentClassDao.getAllStudentClass()
         },
         fetch = {
-            delay(2000)
             getStudentClassData()
         },
         saveFetchResult = { studentClass ->
             dp.withTransaction {
                 studentClassDao.deleteAllStudentClass()
-                studentClassDao.insertList(studentClass)
+                while (studentClass.size == 0) {
+                    studentClassDao.insertList(studentClass)
+                }
             }
         }
     )
 
-    private fun getStudentClassData(): MutableList<StudentClassData> {
+    private suspend fun getStudentClassData(): MutableList<StudentClassData> {
         val studentClassList = mutableListOf<StudentClassData>()
         mDatabase = FirebaseDatabase.getInstance().getReference("/StudentClass/")
         mDatabase.addValueEventListener(object : ValueEventListener {
