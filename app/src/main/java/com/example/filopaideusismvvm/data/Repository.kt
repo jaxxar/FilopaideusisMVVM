@@ -63,7 +63,7 @@ class Repository @Inject constructor(
         }
     )
 
-    private suspend fun getStudentClassData(): MutableList<StudentClassData> {
+    private fun getStudentClassData(): MutableList<StudentClassData> {
         val studentClassList = mutableListOf<StudentClassData>()
         mDatabase = FirebaseDatabase.getInstance().getReference("/StudentClass/")
         mDatabase.addValueEventListener(object : ValueEventListener {
